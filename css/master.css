@@ -4,11 +4,11 @@ img {
 }
 
 body {
-  background-color: #3399ff;
   color: green;
 }
 
 p {
+  background-color: #3399ff;
   font-family: fantasy;
   font-size: 40px;
 }
