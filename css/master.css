@@ -4,6 +4,8 @@ img {
 }
 
 body {
+  background-color: lightblue;
+  border-radius: 12px;
   color: green;
 }
 
