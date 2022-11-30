@@ -2,3 +2,12 @@ img {
   width: 500px;
   height: 500px;
 }
+
+body {
+  color: green;
+}
+
+p {
+  font-family: fantasy;
+  font-size: 40px;
+}
