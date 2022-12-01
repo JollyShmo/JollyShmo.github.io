@@ -15,16 +15,23 @@ p {
 
 ul {
   list-style-type: none;
+  background-color: #dddddd;
   margin: 0;
   padding: 0;
 }
 
 li {
-  list-style-type: disc;
-  border-color: red;
-  border-radius: 24px;
+  float: left;
 }
 
-a {
+li a {
+  display: block;
+  color: white;
   text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
 }
