@@ -52,7 +52,6 @@ li a:hover {
 }
 
 div.gallery {
-  border-radius: 24px;
   margin: 5px;
   border: 1px solid #ccc;
   float: left;
@@ -64,6 +63,7 @@ div.gallery:hover {
 }
 
 div.gallery img {
+  border-radius: 24px;
   width: 100%;
   height: auto;
 }
