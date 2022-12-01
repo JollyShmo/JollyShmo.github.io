@@ -1,10 +1,10 @@
-#title_rounded {
-  color: white;
-  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+.gallery_text {
+  color: darkgray;
   text-align: center;
-  border: 2px;
+  border: 2px outset darkblue;
   border-radius: 24px;
-  background-color: #dddddd;
+  border-spacing: 10px;
+  background-color: darkgray;
 }
 
 div.gallery {
@@ -29,13 +29,4 @@ div.gallery img {
 div.desc {
   padding: 15px;
   text-align: center;
-}
-
-#title_rounded {
-  color: white;
-  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
-  text-align: center;
-  border: 2px;
-  border-radius: 24px;
-  background-color: #dddddd;
 }
