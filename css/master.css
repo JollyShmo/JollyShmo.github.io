@@ -10,6 +10,7 @@
     position: sticky;
     top: 0;
     cursor: pointer;
+
 }
 
 .background {
@@ -80,6 +81,12 @@
   border: 2px outset darkgreen;
   border-radius: 24px;
   background-color: lime;
+}
+
+.text-footer {
+  color: white;
+  text-align: center;
+  text-shadow: 2px 2px 10px black;
 }
 
 img {
