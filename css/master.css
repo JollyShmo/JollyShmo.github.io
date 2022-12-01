@@ -39,9 +39,10 @@ li a:hover {
 }
 
 #title_rounded {
-  text-align: left;
+  text-align: center;
   border: 2px;
   border-radius: 24px;
+  border-color: green;
   background-color: #dddddd;
 }
 
