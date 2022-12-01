@@ -63,8 +63,11 @@
   border: 2px outset darkgray;
   border-radius: 24px;
   border-spacing: 10px;
-  padding: auto;
   background-color: darkblue;
+}
+
+.home-text h2 {
+  padding: auto;
 }
 
 .gallery-text {
