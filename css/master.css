@@ -58,16 +58,12 @@
 }
 
 .home-text {
-  color: white;
+  color: darkgray;
   text-align: center;
   border: 2px outset darkgray;
   border-radius: 24px;
   border-spacing: 10px;
   background-color: darkblue;
-}
-
-.home-text h2 {
-  padding: auto;
 }
 
 .gallery-text {
@@ -90,7 +86,7 @@
 .text-footer {
   color: white;
   text-align: center;
-  text-shadow: 2px 2px 10px black;
+  text-shadow: 2px 2px 10px white;
 }
 
 img {
