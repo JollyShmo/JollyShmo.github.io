@@ -1,8 +1,9 @@
 .main_text.p {
-  border: 5px outset darkgray;
+  color: darkgray;
+  border: 2px outset darkgray;
   border-radius: 24px;
   background-color: darkblue;
-  text-align: right;
+  text-align: center;
 }
 
 img {
