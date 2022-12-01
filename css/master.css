@@ -21,6 +21,7 @@ ul {
 
 li {
   list-style-type: disc;
+  border-color: red;
   border-radius: 24px;
 }
 
