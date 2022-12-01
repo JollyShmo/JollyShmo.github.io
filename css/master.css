@@ -46,6 +46,11 @@ li a:hover {
   background-color: #dddddd;
 }
 
+#gall {
+  border-radius: 24px;
+  border-color: #111;
+}
+
 div.gallery {
   margin: 5px;
   border: 1px solid #ccc;
