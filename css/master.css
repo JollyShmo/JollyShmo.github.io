@@ -11,3 +11,7 @@ p {
   font-family: fantasy;
   font-size: 40px;
 }
+
+* {
+  background-color: lightblue;
+}
