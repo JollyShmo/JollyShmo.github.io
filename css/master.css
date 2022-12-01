@@ -11,3 +11,9 @@ p {
   font-family: fantasy;
   font-size: 40px;
 }
+
+ul {
+  list-style-type: circle;
+  margin: 0;
+  padding: 0;
+}
