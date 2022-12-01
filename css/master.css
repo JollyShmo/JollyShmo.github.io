@@ -48,6 +48,7 @@ li a:hover {
 }
 
 #gall {
+  border-width: thick;
   border-radius: 24px;
   border-color: #111;
 }
