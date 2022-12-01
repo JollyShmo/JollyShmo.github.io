@@ -2,9 +2,9 @@
   color: darkgray;
   text-align: center;
   border: 2px outset darkgray;
-  margin: 100px;
   border-radius: 24px;
   background-color: darkblue;
+  padding: 10px;
 }
 
 img {
