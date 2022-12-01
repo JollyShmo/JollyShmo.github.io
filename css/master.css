@@ -1,4 +1,4 @@
-.home_text {
+.home-text {
   color: darkgray;
   text-align: center;
   border: 2px outset darkgray;
@@ -7,7 +7,7 @@
   background-color: darkblue;
 }
 
-.gallery_text {
+.gallery-text {
   color:  #2b2b2b;
   text-align: center;
   border: 2px outset darkblue;
@@ -16,7 +16,7 @@
   background-color: lightblue;
 }
 
-.about_text {
+.about-text {
   color: darkblue;
   text-align: center;
   border: 2px outset darkgreen;
@@ -34,7 +34,6 @@ body {
 }
 
 p {
-  margin: auto;
   font-family: sans-serif;
   font-size: 16px;
 }
