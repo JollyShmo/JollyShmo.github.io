@@ -9,7 +9,7 @@ body {
 }
 
 p {
-  font-family: fantasy;
+  font-family: sans-serif;
   font-size: 40px;
 }
 
@@ -22,7 +22,7 @@ ul {
 }
 
 li {
-  float: center;
+  float: left;
 }
 
 li a {
@@ -44,7 +44,6 @@ li a:hover {
   text-align: center;
   border: 2px;
   border-radius: 24px;
-  border-color: green;
   background-color: #dddddd;
 }
 
