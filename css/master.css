@@ -31,7 +31,7 @@ p {
 }
 
 p.main {
-  border-color: lightgray darkblue darkgray lightblue;
+  border-color: lightgray darkgreen darkgray lightblue;
   border-style: solid;
   border-width: thick;
   border-radius: 20px;
