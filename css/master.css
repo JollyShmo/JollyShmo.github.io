@@ -37,9 +37,8 @@ li a:hover {
   background-color: #111;
 }
 
-#borders-rounded {
+#title_rounded {
   text-align: center;
-  margin-bottom: 0;
   border-radius: 24px;
   background-color: #dddddd;
 }
