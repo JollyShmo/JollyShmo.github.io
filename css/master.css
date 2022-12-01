@@ -85,6 +85,7 @@
 
 .text-footer {
   color: white;
+  border-radius: 12px;
   text-align: center;
   text-shadow: 2px 2px 10px white;
 }
