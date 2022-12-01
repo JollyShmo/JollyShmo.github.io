@@ -1,5 +1,5 @@
 img {
-  width: 100%;
+  width: auto;
   height: auto;
 }
 
@@ -10,8 +10,4 @@ body {
 p {
   font-family: fantasy;
   font-size: 40px;
-}
-
-* {
-  background-color: lightblue;
 }
