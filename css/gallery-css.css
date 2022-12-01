@@ -1,10 +1,10 @@
 .gallery_text {
-  color: darkgray;
+  color:  #1a380b;
   text-align: center;
   border: 2px outset darkblue;
   border-radius: 24px;
   border-spacing: 10px;
-  background-color: darkgray;
+  background-color: #0b3829;
 }
 
 div.gallery {
