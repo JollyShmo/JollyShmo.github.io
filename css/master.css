@@ -7,6 +7,14 @@
   background-color: darkblue;
 }
 
+.about_text {
+  color: darkblue;
+  text-align: center;
+  border: 2px outset darkgreen;
+  border-radius: 24px;
+  background-color: lime; 
+}
+
 img {
   width: 100%;
   height: auto;
