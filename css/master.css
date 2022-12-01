@@ -1,3 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    cursor: pointer;
+}
+
+.background {
+  background: black;
+  background-blend-mode: darken;
+  background-size: cover;
+
+}
+
+.nav-list {
+  width: 70%;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+  width: 180px;
+  border-radius: 24px;
+}
+
+.nav-list li {
+  list-style: none;
+  padding: 26px 30px;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-list li a:hover {
+  color: gray;
+}
+
+.rightNav {
+  width: 30%;
+  text-align: right;
+}
+
 .home-text {
   color: darkgray;
   text-align: center;
@@ -44,31 +101,6 @@ p.main {
   border-width: thick;
   border-radius: 20px;
   margin: auto;
-}
-
-ul {
-  list-style-type: none;
-  text-align: center;
-  background-color: #dddddd;
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  border-radius: 24px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: #111;
 }
 
 #title_rounded {
