@@ -27,6 +27,7 @@ li {
 
 li a {
   display: block;
+  border-radius: 24px;
   color: white;
   text-align: center;
   padding: 14px 16px;
@@ -34,7 +35,6 @@ li a {
 }
 
 li a:hover {
-  border-radius: 24px;
   background-color: #111;
 }
 
