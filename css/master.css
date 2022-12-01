@@ -15,6 +15,7 @@ p {
 
 ul {
   list-style-type: none;
+  text-align: center;
   background-color: #dddddd;
   margin: 0;
   padding: 0;
