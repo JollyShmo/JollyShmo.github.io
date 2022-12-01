@@ -1,3 +1,10 @@
+.main_text {
+  border: 5px outset darkgray;
+  border-radius: 24px;
+  background-color: lightblue;
+  text-align: right;
+}
+
 img {
   width: 100%;
   height: auto;
