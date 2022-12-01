@@ -14,10 +14,12 @@ p {
 
 ul {
   list-style-type: none;
+  display: inline;
   margin: 0;
   padding: 0;
 }
 
-li {
-  display: inline;
+a {
+  text-align: center;
+  border-radius: 24px;
 }
