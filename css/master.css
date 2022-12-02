@@ -76,7 +76,7 @@
 
 .text-footer {
   display: inline-block;
-  border: 1em groove darkgray;
+  border: 5px groove darkgray;
   border-radius: 10px;
   background-color: rebeccapurple;
   color: white;
