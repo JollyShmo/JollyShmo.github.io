@@ -75,16 +75,16 @@
 }
 
 .text-footer {
-  display: inline-block;
-  justify-content: center;
-  border: 5px groove darkgray;
-  border-radius: 10px;
-  background-color: rebeccapurple;
-  color: white;
-  margin: auto;
-  padding: 2px;
-  text-align: center;
-  text-shadow: 2px 2px 10px white;
+    color: white;
+    margin: auto;
+    padding: 2px;
+    display: inline-block;
+    justify-content: center;
+    border: 5px groove darkgray;
+    border-radius: 10px;
+    background-color: rebeccapurple;
+    text-align: center;
+    text-shadow: 2px 2px 10px white;
 }
 
 img {
