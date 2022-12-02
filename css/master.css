@@ -83,8 +83,7 @@
 
 .text-footer {
   color: white;
-  padding: 5px;
-  outline: auto thick darkgray;
+  outline: 5px thick darkgray;
   text-align: center;
   text-shadow: 2px 2px 10px white;
 }
