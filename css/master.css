@@ -75,16 +75,16 @@
 .about-text {
   color: darkblue;
   text-align: center;
-  border: 2px outset darkgreen;
+  outline: 5px solid green;
   border-radius: 24px;
   background-color: lime;
 }
 
 .text-footer {
-  background-color: aliceblue;
+  background-color: rebeccapurple;
   color: white;
   padding: 0;
-  outline: 5px thick darkgray;
+  outline: 5px thick black;
   text-align: center;
   text-shadow: 2px 2px 10px white;
 }
