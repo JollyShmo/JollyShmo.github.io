@@ -68,6 +68,8 @@
 
 .about-text {
   color: darkblue;
+  margin: auto;
+  padding: 2px;
   text-align: center;
   outline: 5px solid green;
   border-radius: 24px;
