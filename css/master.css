@@ -109,8 +109,9 @@ p {
 }
 
 p.main {
+  padding: 2px;
+  border: 5px solid;
   border-color: lightgray darkgreen darkgray lightblue;
-  border-style: solid;
   border-width: thick;
   border-radius: 20px;
   margin: auto;
