@@ -109,7 +109,7 @@ p {
     font-size: 16px;
 }
 
-p.main {
+#main {
   border: 5px solid;
   border-color: lightgray darkgreen darkgray lightblue;
   border-width: thick;
