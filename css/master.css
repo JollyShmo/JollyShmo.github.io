@@ -101,6 +101,7 @@ img {
 
 body {
   background-color: lightblue;
+  overflow: hidden;
 }
 
 p {
