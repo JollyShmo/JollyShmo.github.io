@@ -50,6 +50,12 @@
   padding: 10px;
 }
 
+.nav-list li a:active {
+    background-color: lightgray;
+    border-color: lightgreen;
+    padding: 10px;
+}
+
 .rightNav {
   width: 30%;
   text-align: right;
