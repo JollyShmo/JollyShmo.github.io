@@ -81,11 +81,11 @@
 }
 
 .text-footer {
+  display: inline;
   border: 2px groove darkgray;
   border-radius: 10px;
   background-color: rebeccapurple;
   color: white;
-  width: 200px;
   padding: 2px;
   outline: 5px thick black;
   text-align: center;
