@@ -83,7 +83,8 @@
 .text-footer {
   background-color: rebeccapurple;
   color: white;
-  padding: 0;
+  width: 200px;
+  padding: 2px;
   outline: 5px thick black;
   text-align: center;
   text-shadow: 2px 2px 10px white;
