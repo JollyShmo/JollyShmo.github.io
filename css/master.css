@@ -9,7 +9,6 @@
     justify-content: center;
     position: sticky;
     top: 0;
-    border-radius: 18px;
     cursor: pointer;
 
 }
@@ -41,6 +40,7 @@
 
 .nav-list li a {
   text-decoration: none;
+  outline: 5px solid white;
   color: white;
 }
 
