@@ -115,6 +115,7 @@ p {
   border-width: thick;
   border-radius: 20px;
   margin: auto;
+  z-index: 1;
 }
 
 #title_rounded {
