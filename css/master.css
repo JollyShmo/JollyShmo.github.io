@@ -32,11 +32,6 @@
   align-items: center;
 }
 
-.logo img {
-  width: 180px;
-  border-radius: 24px;
-}
-
 .nav-list li {
   list-style: none;
   font-size: 24px;
