@@ -52,6 +52,10 @@
     background-color: greenyellow;
 }
 
+.nav-list li a:after {
+    border: 10px dotted greenyellow;
+}
+
 .home-text {
   color: darkgray;
   text-align: center;
