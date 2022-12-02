@@ -68,7 +68,7 @@
 
 .about-text {
   color: darkblue;
-  margin: auto;
+  margin: 0;
   padding: 2px;
   text-align: center;
   outline: 5px solid green;
@@ -78,7 +78,6 @@
 
 .text-footer {
     color: white;
-    margin: 0;
     padding: 2px;
     display: inline-flex;
     justify-content: center;
