@@ -38,6 +38,7 @@
 }
 
 .nav-list li a {
+  padding: 5px;
   text-decoration: none;
   outline: 5px solid white;
   border-radius: 12px;
@@ -46,7 +47,7 @@
 
 .nav-list li a:hover {
   color: gray;
-  padding: 5px;
+  padding: 10px;
 }
 
 .rightNav {
