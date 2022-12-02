@@ -44,11 +44,11 @@
 }
 
 .nav-list li a:hover {
-  color: gray;
+  color: goldenrod;
   padding: 10px;
 }
 
-.nav-list li a:active {
+.nav-list li a::after {
     border: 5px dotted greenyellow;
 }
 
