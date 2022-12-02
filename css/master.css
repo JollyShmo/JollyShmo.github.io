@@ -53,7 +53,7 @@
 }
 
 .home-text {
-  
+  padding: 2px;
   color: darkgray;
   text-align: center;
   border: 2px outset darkgray;
