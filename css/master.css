@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 .navbar {
@@ -101,7 +102,6 @@ img {
 
 body {
   background-color: lightblue;
-  overflow: hidden;
 }
 
 p {
