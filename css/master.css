@@ -81,6 +81,7 @@
 }
 
 .text-footer {
+  background-color: aliceblue;
   color: white;
   padding: 0;
   outline: 5px thick darkgray;
