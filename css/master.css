@@ -65,6 +65,8 @@
 .gallery-text {
   color:  #2b2b2b;
   text-align: center;
+  margin: 0;
+  padding: 2px;
   border: 2px outset darkblue;
   border-radius: 24px;
   border-spacing: 10px;
@@ -95,7 +97,6 @@
 img {
   width: 50%;
   height: 50%;
-  position: center;
 }
 
 body {
