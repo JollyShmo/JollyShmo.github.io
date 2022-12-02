@@ -48,7 +48,7 @@
   padding: 10px;
 }
 
-.nav-list li a::after {
+.nav-list li a:active {
     border: 5px dotted greenyellow;
 }
 
