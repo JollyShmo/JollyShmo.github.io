@@ -25,7 +25,7 @@
 
 .nav-list {
   width: 100%;
-  display: flex;
+  display: inline-flexbox;
   align-items: center;
 }
 
@@ -101,7 +101,6 @@ img {
 
 body {
   background-color: lightblue;
-  overflow: hidden;
 }
 
 p {
