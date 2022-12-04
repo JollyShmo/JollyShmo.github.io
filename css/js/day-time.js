@@ -1,2 +1,2 @@
-const daytime = Date();
-document.getElementById("date-id").innerHTML = daytime.toDateString();
+const tdate = Date();
+document.getElementById("date-id").innerHTML = tdate.toDateString();
