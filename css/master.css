@@ -25,7 +25,7 @@
 
 .nav-list {
   width: 100%;
-  display: inline-flexbox;
+  display: flex;
   align-items: center;
 }
 
