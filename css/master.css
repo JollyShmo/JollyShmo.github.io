@@ -102,10 +102,11 @@ img {
 
 body {
   background-color: lightblue;
+  border: 5px ;
 }
 
 p {
-    padding: 2px;
+    padding: 2px dotted rgb(154, 191, 32);
     font-family: sans-serif;
     font-size: 16px;
 }
