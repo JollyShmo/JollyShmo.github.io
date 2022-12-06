@@ -134,3 +134,7 @@ p {
   border-radius: 24px;
   border-color: #111;
 }
+
+button {
+text-align: center;
+}
