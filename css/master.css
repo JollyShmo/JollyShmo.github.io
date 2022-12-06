@@ -109,6 +109,7 @@ p {
     padding: 2px dotted rgb(154, 191, 32);
     font-family: sans-serif;
     font-size: 16px;
+    text-align: center;
 }
 
 #main {
@@ -133,8 +134,4 @@ p {
   border-width: thick;
   border-radius: 24px;
   border-color: #111;
-}
-
-p.button-time {
-text-align: center;
 }
