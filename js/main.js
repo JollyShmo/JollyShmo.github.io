@@ -1,1 +1,1 @@
-prompt("Welcome to Jolly Joe's \n WEBSITE.");
+alert("Welcome to Jolly Joe's \n WEBSITE.");
