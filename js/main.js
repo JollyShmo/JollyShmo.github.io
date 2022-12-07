@@ -1,1 +1,1 @@
-alert('Welcome to my website. =D');
+alert("Welcome to Jolly Joe's \n WEBSITE.");
