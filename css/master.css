@@ -24,7 +24,6 @@
 }
 .nav-container {
   text-align: center;
-  padding: 2px;
 }
 .nav-list {
   width: 100%;
@@ -88,6 +87,11 @@
   outline: 5px solid green;
   border-radius: 24px;
   background-color: lime;
+}
+
+.gate-container {
+  background: lightsalmon;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .text-footer {
