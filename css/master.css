@@ -60,6 +60,7 @@
   border: 2px outset darkgray;
   border-radius: 24px;
   border-spacing: 10px;
+  box-shadow: 6px 4px 8px 4px;
   background-color: darkblue;
 }
 
