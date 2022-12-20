@@ -60,7 +60,7 @@
   border: 2px outset darkgray;
   border-radius: 24px;
   border-spacing: 10px;
-  box-shadow: 6px 4px 8px 4px;
+  box-shadow: 6px 4px #00A4BD;
   background-color: darkblue;
 }
 
@@ -110,6 +110,12 @@ p {
     padding: 2px dotted rgb(154, 191, 32);
     font-family: sans-serif;
     font-size: 16px;
+}
+
+#button-time {
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
 }
 
 #main {
