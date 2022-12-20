@@ -34,6 +34,9 @@
   list-style: none;
   font-size: 24px;
   padding: 26px 30px;
+  border-radius: 15px;
+  box-shadow: 4px 4px 10px red;
+  background: #377337;
 }
 
 .nav-list li a {
@@ -50,7 +53,7 @@
 }
 
 .nav-list li a:active {
-    border: 10px dotted greenyellow;
+    border: 10px solid lightsalmon;
 }
 
 .home-text {
