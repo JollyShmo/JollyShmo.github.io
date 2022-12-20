@@ -51,6 +51,7 @@
 .nav-list li a:hover {
   color: goldenrod;
   padding: 10px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .nav-list li a:active {
