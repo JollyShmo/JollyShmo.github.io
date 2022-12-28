@@ -117,7 +117,7 @@ body {
 }
 
 p {
-    padding: 2px dotted rgb(154, 191, 32);
+    border: 2px dotted rgb(154, 191, 32);
     font-family: sans-serif;
     font-size: 16px;
 }
