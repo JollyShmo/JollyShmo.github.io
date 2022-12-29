@@ -124,7 +124,8 @@ p {
 
 i {
   margin: auto 0.5em;
-  border: 2px #2b2b2b;
+  border-radius: 6px;
+  box-shadow: 2px 2px 5px darkblue;
 }
 
 #button-time {
