@@ -1,1 +1,1 @@
-alert("Welcome to Jolly Joe's \n WEBSITE.");
+window.alert("Welcome to Jolly Joe's Website!");
