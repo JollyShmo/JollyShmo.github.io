@@ -89,11 +89,6 @@
   background-color: lime;
 }
 
-.first-card {
-  background: darkolivegreen;
-  font-family: 'Courier New', Courier, monospace;
-}
-
 .text-footer {
     color: white;
     padding: 2px;
@@ -127,6 +122,12 @@ i {
   margin: auto 0.5em;
   border-radius: 6px;
   box-shadow: 2px 2px 5px darkblue;
+}
+
+
+#first-card {
+  background: darkolivegreen;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 #button-time {
