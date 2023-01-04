@@ -10,8 +10,6 @@
     justify-content: center;
     position: sticky;
     top: 0;
-    cursor: pointer;
-
 }
 
 .background {
@@ -52,6 +50,7 @@
   color: goldenrod;
   padding: 10px;
   font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
 }
 
 .nav-list li a:active {
