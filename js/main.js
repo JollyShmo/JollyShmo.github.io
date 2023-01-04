@@ -1,1 +1,1 @@
-prompt("Welcome to Jolly Joe's Website!");
+/* TODO: Everything */
