@@ -5,11 +5,9 @@
 }
 
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: sticky;
-    top: 0;
+  display: flex;
+  position: sticky;
+  top: 0;
 }
 
 .background {
