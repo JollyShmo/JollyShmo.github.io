@@ -1,1 +1,1 @@
-window.alert("Welcome to Jolly Joe's Website!");
+prompt("Welcome to Jolly Joe's Website!");
