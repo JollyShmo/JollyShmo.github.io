@@ -118,7 +118,10 @@ body {
   border: 5px ;
   overflow-y: auto;
 }
-
+hr {
+  box-shadow: 4px 4px 4px darkolivegreen;
+  
+}
 p {
   border: 2px dotted rgb(154, 191, 32);
   font-family: sans-serif;
