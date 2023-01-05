@@ -110,7 +110,8 @@ img {
   height: 50%;
 }
 button {
-  box-shadow: 4px 4px 7px greenyellow;
+  box-shadow: 4px 4px 7px black;
+  border: 3px dotted lightseagreen;
 }
 body {
   background-color: lightblue;
