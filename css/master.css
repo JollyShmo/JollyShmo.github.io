@@ -116,6 +116,7 @@ button {
 body {
   background-color: lightblue;
   border: 5px ;
+  overflow-y: auto;
 }
 
 p {
