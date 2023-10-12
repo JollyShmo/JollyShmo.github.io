@@ -1,104 +1,70 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--other meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jolly Joe - Game Designer and Developer">
+    <title>Jolly Joe's Portfolio</title>
 
-  <title>Jolly Joe's Homepage</title>
-<!--tab icon-->
+    <!-- Add your CSS stylesheets here -->
+    <link rel="stylesheet" href="your-styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
 
-<!--bootstrap-->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" 
-rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-<!--icons-->
-<script src="https://kit.fontawesome.com/d4094e761b.js" crossorigin="anonymous"></script>
+    <!-- Add your JavaScript files here -->
+    <script src="your-scripts.js"></script>
+    <script src="https://kit.fontawesome.com/d4094e761b.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<!--nav-->
-<nav class="navbar navbar-dark bg-dark-subtle fixed-top border bg-gradient rounded-top-pill p-2">
-  <div class="container-fluid text-center justify-content-center">
-    <p class="h2 text-primary ">Jolly Joe <i class="fa fa-laptop-code text-primary-emphasis"></i> Front End Developer </p>
-<!--nav icon-->
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-      <span class="fa fa-navicon"></span>
-    </button>
-<!--off canvas nav-->
-    <div class=" w-auto h-75 rounded-bottom-5 offcanvas offcanvas-end text-bg-dark bg-info-subtle" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Home</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-<!--off canvas nav links-->
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
-            <a class="nav-link text-warning-emphasis" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-success-emphasis" href="#">Portfolio</a>
-          </li>
-          <li class="nav-item dropdown">
-<!--projects-->
-            <a class="nav-link dropdown-toggle text-primary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              My Projects
-            </a>
-<!--project links-->
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <li><a class="dropdown-item" href="#">Project #1</a></li>
-              <li><a class="dropdown-item" href="#">Project #2</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item text-warning" href="#">Untitled Project</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</nav>
-<!--body container-->
-<div class="container-md pt-5 my-4 my-md-2 border-2">
-<!--intro to my profile-->
-<hr class="text-primary">
-<div class="card-group p-lg-3 pt-3">
-<!--first card-->
-  <div class="card w-lg-50 shadow">
-    <img src="https://hotelcaliforniablog.com/wp-content/uploads/2017/07/vista-point-1-1030x579.jpg" alt="Card Img" class="img-fluid">
-      <div class="card-footer text-center">
-        Hello World
-      </div>
-  </div>
-  <!--second card-->
-  <div class="card w-lg-50 shadow">
-    <div class="card-body">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe nobis accusamus beatae, voluptate, odio inventore atque sed vitae molestiae cupiditate quasi quaerat. Ullam tempora, voluptates delectus omnis laudantium, esse facilis ab consequatur asperiores ad reprehenderit iste fugit repellendus soluta enim maiores, cum consequuntur earum vel aspernatur libero nesciunt. Necessitatibus, quos?
-    </div>
-      <div class="card-footer">      
-        <div class="btn-group h-50">
-          <input type="button" class="btn btn-outline-info rounded-start-pill" value="Back">
-          <div class="card-text p-2">
-            2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, est ipsa ab deserunt eveniet quibusdam nulla, laborum, obcaecati id praesentium quo aut excepturi voluptatem nesciunt minus vitae similique dolore! Consectetur.
-          </div>
-          <input type="button" class="btn btn-outline-info rounded-end-pill" value="Next">
+    <!-- Navigation -->
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Jolly Joe</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
-  </div>
-</div>
-  <!--footer-->
-  <div class="card bg-gradient opacity-75 rounded-bottom-pill btn-group text-center">
-    <div class="card-text"> Site Created and Mantained by
-      <a class="btn btn-outline-light rounded-pill bg-opacity-10" href="https://www.github.com/JollyShmo" role="button"><i class="fa fa-github"></i> Jolly Joe</a>
-      <p><i class="fa-regular fa-copyright"></i> 2023</p> 
-    </div>
-  </div>
-</div>
+    </nav>
 
-<!--bootstrap js-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
-integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Your introduction text goes here.</p>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio">
+            <h2>My Portfolio</h2>
+            <!-- Add your portfolio items here -->
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>My Projects</h2>
+            <!-- Add your project details here -->
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center py-3">
+        <p>&copy; 2023 Jolly Joe - Game Designer and Developer</p>
+    </footer>
+
+    <!-- Bootstrap and Other Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
