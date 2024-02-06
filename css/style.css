@@ -7,9 +7,7 @@ p {
     font-size: medium;
     color: darkolivegreen;
 }
-#footer {
-    color: black;
-}
+
 body {
     background-color: #333; /* Dark background color */
     color: #fff; /* Light text color */
@@ -26,4 +24,15 @@ header {
     background-color: #222; /* Dark background color for header */
     padding: 20px;
     text-align: center;
+}
+
+.card-title {
+    color: black;
+}
+
+.card-text {
+    font-size: 12px;
+}
+#footer {
+    color: black;
 }
