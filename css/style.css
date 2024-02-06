@@ -5,12 +5,12 @@
 
 p {
     font-size: medium;
-    color: darkolivegreen;
+    color: black;
 }
 
 body {
     background-color: #333; /* Dark background color */
-    color: #fff; /* Light text color */
+    color:mediumseagreen; /* Light text color */
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -27,11 +27,15 @@ header {
 }
 
 .card-title {
-    color: black;
+    color: darkorange;
+    background-color: #222;
+    border-radius: 4px 10px;
+    text-align: center;
+
 }
 
 .card-text {
-    font-size: 12px;
+    font-size: 16px;
 }
 #footer {
     color: black;
