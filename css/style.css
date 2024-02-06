@@ -25,12 +25,16 @@ header {
     padding: 20px;
     text-align: center;
 }
-
+.card {
+    width:400px;
+    text-align: center;
+}
 .card-title {
     color: darkorange;
     background-color: #222;
     border-radius: 4px 10px;
     text-align: center;
+    width: 200px;
 
 }
 
