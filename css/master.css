@@ -176,3 +176,15 @@ i {
   border-radius: 24px;
   border-color: #111;
 }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.col-md-4 {
+  flex: 0 0 calc(33.333% - 20px); /* Adjust width as needed */
+  max-width: calc(33.333% - 20px); /* Adjust max-width as needed */
+  margin-bottom: 20px;
+}
