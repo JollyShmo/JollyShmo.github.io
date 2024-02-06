@@ -7,3 +7,23 @@ p {
     font-size: medium;
     color: darkolivegreen;
 }
+#footer {
+    color: black;
+}
+body {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Light text color */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #fff; /* Light color for links */
+}
+
+header {
+    background-color: #222; /* Dark background color for header */
+    padding: 20px;
+    text-align: center;
+}
