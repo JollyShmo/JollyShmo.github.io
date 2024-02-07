@@ -99,24 +99,51 @@
     });
 
     document.getElementById("download").addEventListener("click", () => {
-  const chalkOverlay = document.getElementById("chalkOverlay"); // Assuming chalkOverlay is the ID of the SVG element to be converted
-  
-  // Use html2canvas to render the SVG onto a canvas
-  html2canvas(chalkOverlay).then(canvas => {
-    // Convert the canvas to a JPEG blob
-    canvas.toBlob(function(blob) {
-      // Create a URL for the JPEG blob and trigger the download
-      const jpegUrl = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = jpegUrl;
-      a.download = "chalkboard_drawing.jpeg";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(jpegUrl);
-    }, "image/jpeg", 1); // Quality set to 1 for maximum quality
-  });
-});
+      const svgData = new XMLSerializer().serializeToString(chalkOverlay);
+
+      // Create a temporary SVG element to calculate its dimensions
+      const tempSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      tempSvg.innerHTML = svgData;
+      document.body.appendChild(tempSvg);
+
+      // Get the bounding box of the SVG content
+      const bbox = tempSvg.getBBox();
+
+      // Remove the temporary SVG element
+      document.body.removeChild(tempSvg);
+
+      // Create a canvas element with dimensions based on the bounding box
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = bbox.width;
+      canvas.height = bbox.height;
+
+      // Create an image element and set its source to the SVG data
+      const img = new Image();
+      const svgBlob = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
+      const url = URL.createObjectURL(svgBlob);
+      img.src = url;
+
+      // Wait for the image to load
+      img.onload = function() {
+        // Draw the SVG image onto the canvas
+        ctx.drawImage(img, 0, 0);
+
+        // Convert the canvas to a PNG blob
+        canvas.toBlob(function(blob) {
+          // Create a URL for the PNG blob and trigger the download
+          const pngUrl = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = pngUrl;
+          a.download = "chalkboard_drawing.png";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(pngUrl);
+        });
+      };
+
+    });
 
     function startDrawing(event) {
       event.preventDefault();
