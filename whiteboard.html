@@ -56,6 +56,11 @@
     <option value="20">Medium</option>
     <option value="30">Thick</option>
   </select>
+  <select id="line-style">
+    <option value="round">Round</option>
+    <option value="square">Square</option>
+    <option value="butt">Butt</option>
+  </select>
   <button id="clear-all"><i class="fas fa-trash-alt"></i></button>
   <button id="download"><i class="fas fa-download"></i></button>
 </div>
@@ -65,7 +70,7 @@
     const chalkOverlay = document.getElementById("chalk-overlay");
     const toolbar = document.getElementById("toolbar");
 
-    let isDrawing = true;
+    let isDrawing = false;
     let isErasing = false;
     let lastX, lastY;
 
@@ -93,52 +98,52 @@
       chalkOverlay.innerHTML = "";
     });
 
-document.getElementById("download").addEventListener("click", () => {
-  const svgData = new XMLSerializer().serializeToString(chalkOverlay);
+    document.getElementById("download").addEventListener("click", () => {
+      const svgData = new XMLSerializer().serializeToString(chalkOverlay);
 
-  // Create a temporary SVG element to calculate its dimensions
-  const tempSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  tempSvg.innerHTML = svgData;
-  document.body.appendChild(tempSvg);
+      // Create a temporary SVG element to calculate its dimensions
+      const tempSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      tempSvg.innerHTML = svgData;
+      document.body.appendChild(tempSvg);
 
-  // Get the bounding box of the SVG content
-  const bbox = tempSvg.getBBox();
+      // Get the bounding box of the SVG content
+      const bbox = tempSvg.getBBox();
 
-  // Remove the temporary SVG element
-  document.body.removeChild(tempSvg);
+      // Remove the temporary SVG element
+      document.body.removeChild(tempSvg);
 
-  // Create a canvas element with dimensions based on the bounding box
-  const canvas = document.createElement("canvas");
-  const ctx = canvas.getContext("2d");
-  canvas.width = bbox.width;
-  canvas.height = bbox.height;
+      // Create a canvas element with dimensions based on the bounding box
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = bbox.width;
+      canvas.height = bbox.height;
 
-  // Create an image element and set its source to the SVG data
-  const img = new Image();
-  const svgBlob = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
-  const url = URL.createObjectURL(svgBlob);
-  img.src = url;
+      // Create an image element and set its source to the SVG data
+      const img = new Image();
+      const svgBlob = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
+      const url = URL.createObjectURL(svgBlob);
+      img.src = url;
 
-  // Wait for the image to load
-  img.onload = function() {
-    // Draw the SVG image onto the canvas
-    ctx.drawImage(img, 0, 0);
+      // Wait for the image to load
+      img.onload = function() {
+        // Draw the SVG image onto the canvas
+        ctx.drawImage(img, 0, 0);
 
-    // Convert the canvas to a PNG blob
-    canvas.toBlob(function(blob) {
-      // Create a URL for the PNG blob and trigger the download
-      const pngUrl = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = pngUrl;
-      a.download = "chalkboard_drawing.png";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(pngUrl);
+        // Convert the canvas to a PNG blob
+        canvas.toBlob(function(blob) {
+          // Create a URL for the PNG blob and trigger the download
+          const pngUrl = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = pngUrl;
+          a.download = "chalkboard_drawing.png";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(pngUrl);
+        });
+      };
+
     });
-  };
-
-});
 
     function startDrawing(event) {
       event.preventDefault();
@@ -158,6 +163,7 @@ document.getElementById("download").addEventListener("click", () => {
       line.setAttribute("y2", offsetY);
       line.setAttribute("stroke", isErasing ? "black" : "white");
       line.setAttribute("stroke-width", document.getElementById("stroke-style").value);
+      line.setAttribute("stroke-linecap", document.getElementById("line-style").value);
       chalkOverlay.appendChild(line);
       lastX = offsetX;
       lastY = offsetY;
