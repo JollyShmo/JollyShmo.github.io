@@ -17,10 +17,15 @@
         height: 100vh;
     }
     #whiteboard-container {
-        flex-grow: 1;
-        width: 100%;
-        overflow: hidden;
-    }
+    flex-grow: 1;
+    width: 100%;
+    overflow: hidden;
+    touch-action: none; /* Disable browser default touch actions */
+}
+
+body {
+    overflow: hidden; /* Disable scrolling for the entire page */
+}
     #whiteboard {
         border: 1px solid #000;
         width: 100%;
