@@ -101,13 +101,14 @@
     });
 
     document.getElementById("download").addEventListener("click", () => {
-      const svgData = new XMLSerializer().serializeToString(chalkOverlay);
+  const svgData = new XMLSerializer().serializeToString(chalkOverlay);
 
-      const pdf = new jsPDF('p', 'mm', [chalkOverlay.clientWidth, chalkOverlay.clientHeight]);
-      pdf.text(10, 10, 'Chalkboard Drawing');
-      pdf.addImage(svgData, 'SVG', 0, 0, chalkOverlay.clientWidth, chalkOverlay.clientHeight);
-      pdf.save('chalkboard_drawing.pdf');
-    });
+  const pdf = new jsPDF();
+  pdf.text(10, 10, 'Chalkboard Drawing');
+  pdf.addSVG(svgData, 10, 20, chalkOverlay.clientWidth - 20);
+
+  pdf.save('chalkboard_drawing.pdf');
+});
 
     function startDrawing(event) {
       event.preventDefault();
