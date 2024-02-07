@@ -7,21 +7,23 @@
 <!-- Bootstrap CSS -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <style>
-    body, html {
-        height: 100%;
+    body {
         margin: 0;
     }
     .container {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100%;
+        height: 100vh;
     }
     #whiteboard-container {
         margin-right: 20px; /* Adjust as needed */
     }
     #whiteboard {
         border: 1px solid #000;
+        width: 100%; /* Make canvas responsive */
+        max-width: 700px; /* Adjust as needed */
+        height: auto; /* Make canvas responsive */
     }
     .control-container {
         margin-bottom: 10px; /* Adjust as needed */
@@ -95,11 +97,21 @@
             ctx.clearRect(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop, lineWidthInput.value, lineWidthInput.value);
         }
 
-        canvas.addEventListener('mousedown', startDrawing);
-        canvas.addEventListener('mousemove', draw);
-        canvas.addEventListener('mouseup', stopDrawing);
-        canvas.addEventListener('mouseout', stopDrawing);
-        
+        canvas.addEventListener('touchstart', function (e) {
+            e.preventDefault();
+            startDrawing(e.touches[0]);
+        });
+
+        canvas.addEventListener('touchmove', function (e) {
+            e.preventDefault();
+            draw(e.touches[0]);
+        });
+
+        canvas.addEventListener('touchend', function (e) {
+            e.preventDefault();
+            stopDrawing();
+        });
+
         eraserButton.addEventListener('click', function () {
             isErasing = !isErasing;
             if (isErasing) {
@@ -109,12 +121,12 @@
             }
         });
 
-        // Add erase function to mousemove event listener when eraser mode is active
+        // Add erase function to touchmove event listener when eraser mode is active
         eraserButton.addEventListener('click', function () {
             if (isErasing) {
-                canvas.addEventListener('mousemove', erase);
+                canvas.addEventListener('touchmove', erase);
             } else {
-                canvas.removeEventListener('mousemove', erase);
+                canvas.removeEventListener('touchmove', erase);
             }
         });
     });
