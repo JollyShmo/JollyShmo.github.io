@@ -52,9 +52,10 @@
   <button id="draw" class="active"><i class="fas fa-pencil-alt"></i></button>
   <button id="erase"><i class="fas fa-eraser"></i></button>
   <select id="stroke-style">
-    <option value="10">Thin</option>
-    <option value="20">Medium</option>
-    <option value="30">Thick</option>
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+    <option value="30">30</option>
   </select>
   <select id="line-style">
     <option value="round">Round</option>
@@ -63,12 +64,20 @@
   </select>
   <button id="clear-all"><i class="fas fa-trash-alt"></i></button>
   <button id="download"><i class="fas fa-download"></i></button>
+  <input type="number" id="save-width" placeholder="Width">
+  <input type="number" id="save-height" placeholder="Height">
 </div>
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     const chalkOverlay = document.getElementById("chalk-overlay");
     const toolbar = document.getElementById("toolbar");
+    const drawButton = document.getElementById("draw");
+    const eraseButton = document.getElementById("erase");
+    const strokeStyleSelect = document.getElementById("stroke-style");
+    const lineStyleSelect = document.getElementById("line-style");
+    const clearAllButton = document.getElementById("clear-all");
+    const downloadButton = document.getElementById("download");
 
     let isDrawing = false;
     let isErasing = false;
@@ -82,68 +91,23 @@
     chalkOverlay.addEventListener("touchend", stopDrawing);
     chalkOverlay.addEventListener("mouseleave", stopDrawing);
 
-    document.getElementById("draw").addEventListener("click", () => {
+    drawButton.addEventListener("click", () => {
       isErasing = false;
-      document.getElementById("draw").classList.add("active");
-      document.getElementById("erase").classList.remove("active");
+      drawButton.classList.add("active");
+      eraseButton.classList.remove("active");
     });
 
-    document.getElementById("erase").addEventListener("click", () => {
+    eraseButton.addEventListener("click", () => {
       isErasing = true;
-      document.getElementById("erase").classList.add("active");
-      document.getElementById("draw").classList.remove("active");
+      eraseButton.classList.add("active");
+      drawButton.classList.remove("active");
     });
 
-    document.getElementById("clear-all").addEventListener("click", () => {
+    clearAllButton.addEventListener("click", () => {
       chalkOverlay.innerHTML = "";
     });
 
-    document.getElementById("download").addEventListener("click", () => {
-      const svgData = new XMLSerializer().serializeToString(chalkOverlay);
-
-      // Create a temporary SVG element to calculate its dimensions
-      const tempSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      tempSvg.innerHTML = svgData;
-      document.body.appendChild(tempSvg);
-
-      // Get the bounding box of the SVG content
-      const bbox = tempSvg.getBBox();
-
-      // Remove the temporary SVG element
-      document.body.removeChild(tempSvg);
-
-      // Create a canvas element with dimensions based on the bounding box
-      const canvas = document.createElement("canvas");
-      const ctx = canvas.getContext("2d");
-      canvas.width = bbox.width;
-      canvas.height = bbox.height;
-
-      // Create an image element and set its source to the SVG data
-      const img = new Image();
-      const svgBlob = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
-      const url = URL.createObjectURL(svgBlob);
-      img.src = url;
-
-      // Wait for the image to load
-      img.onload = function() {
-        // Draw the SVG image onto the canvas
-        ctx.drawImage(img, 0, 0);
-
-        // Convert the canvas to a PNG blob
-        canvas.toBlob(function(blob) {
-          // Create a URL for the PNG blob and trigger the download
-          const pngUrl = URL.createObjectURL(blob);
-          const a = document.createElement("a");
-          a.href = pngUrl;
-          a.download = "chalkboard_drawing.png";
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          URL.revokeObjectURL(pngUrl);
-        });
-      };
-
-    });
+    downloadButton.addEventListener("click", downloadImage);
 
     function startDrawing(event) {
       event.preventDefault();
@@ -162,8 +126,8 @@
       line.setAttribute("x2", offsetX);
       line.setAttribute("y2", offsetY);
       line.setAttribute("stroke", isErasing ? "black" : "white");
-      line.setAttribute("stroke-width", document.getElementById("stroke-style").value);
-      line.setAttribute("stroke-linecap", document.getElementById("line-style").value);
+      line.setAttribute("stroke-width", strokeStyleSelect.value);
+      line.setAttribute("stroke-linecap", lineStyleSelect.value);
       chalkOverlay.appendChild(line);
       lastX = offsetX;
       lastY = offsetY;
@@ -187,6 +151,35 @@
     chalkOverlay.addEventListener("touchmove", function(event) {
       event.preventDefault();
     }, { passive: false });
+
+    function downloadImage() {
+      const svgData = new XMLSerializer().serializeToString(chalkOverlay);
+      const tempSvg = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
+      const url = URL.createObjectURL(tempSvg);
+
+      const img = new Image();
+      img.onload = function() {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+
+        const saveWidth = document.getElementById("save-width").value || img.width;
+        const saveHeight = document.getElementById("save-height").value || img.height;
+
+        canvas.width = saveWidth;
+        canvas.height = saveHeight;
+        ctx.drawImage(img, 0, 0, saveWidth, saveHeight);
+
+        const pngUrl = canvas.toDataURL("image/png");
+        const a = document.createElement("a");
+        a.href = pngUrl;
+        a.download = "chalkboard_drawing.png";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(pngUrl);
+      };
+      img.src = url;
+    }
   });
 </script>
 </body>
