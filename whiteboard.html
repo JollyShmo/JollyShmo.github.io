@@ -17,8 +17,7 @@
     height: 100%;
     background-color: black;
     position: relative;
-
-}
+  }
   #chalk-overlay {
     width: 100%;
     height: 100%;
@@ -52,11 +51,17 @@
 <div id="toolbar">
   <button id="draw" class="active"><i class="fas fa-pencil-alt"></i></button>
   <button id="erase"><i class="fas fa-eraser"></i></button>
+  <select id="stroke-style">
+    <option value="10">Thin</option>
+    <option value="20">Medium</option>
+    <option value="30">Thick</option>
+  </select>
+  <button id="clear-all"><i class="fas fa-trash-alt"></i></button>
+  <button id="download"><i class="fas fa-download"></i></button>
 </div>
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    const chalkboard = document.getElementById("chalkboard");
     const chalkOverlay = document.getElementById("chalk-overlay");
     const toolbar = document.getElementById("toolbar");
 
@@ -64,13 +69,13 @@
     let isErasing = false;
     let lastX, lastY;
 
-    chalkboard.addEventListener("mousedown", startDrawing);
-    chalkboard.addEventListener("touchstart", startDrawing);
-    chalkboard.addEventListener("mousemove", draw);
-    chalkboard.addEventListener("touchmove", draw);
-    chalkboard.addEventListener("mouseup", stopDrawing);
-    chalkboard.addEventListener("touchend", stopDrawing);
-    chalkboard.addEventListener("mouseleave", stopDrawing);
+    chalkOverlay.addEventListener("mousedown", startDrawing);
+    chalkOverlay.addEventListener("touchstart", startDrawing);
+    chalkOverlay.addEventListener("mousemove", draw);
+    chalkOverlay.addEventListener("touchmove", draw);
+    chalkOverlay.addEventListener("mouseup", stopDrawing);
+    chalkOverlay.addEventListener("touchend", stopDrawing);
+    chalkOverlay.addEventListener("mouseleave", stopDrawing);
 
     document.getElementById("draw").addEventListener("click", () => {
       isErasing = false;
@@ -83,6 +88,57 @@
       document.getElementById("erase").classList.add("active");
       document.getElementById("draw").classList.remove("active");
     });
+
+    document.getElementById("clear-all").addEventListener("click", () => {
+      chalkOverlay.innerHTML = "";
+    });
+
+document.getElementById("download").addEventListener("click", () => {
+  const svgData = new XMLSerializer().serializeToString(chalkOverlay);
+
+  // Create a temporary SVG element to calculate its dimensions
+  const tempSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  tempSvg.innerHTML = svgData;
+  document.body.appendChild(tempSvg);
+
+  // Get the bounding box of the SVG content
+  const bbox = tempSvg.getBBox();
+
+  // Remove the temporary SVG element
+  document.body.removeChild(tempSvg);
+
+  // Create a canvas element with dimensions based on the bounding box
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+  canvas.width = bbox.width;
+  canvas.height = bbox.height;
+
+  // Create an image element and set its source to the SVG data
+  const img = new Image();
+  const svgBlob = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
+  const url = URL.createObjectURL(svgBlob);
+  img.src = url;
+
+  // Wait for the image to load
+  img.onload = function() {
+    // Draw the SVG image onto the canvas
+    ctx.drawImage(img, 0, 0);
+
+    // Convert the canvas to a PNG blob
+    canvas.toBlob(function(blob) {
+      // Create a URL for the PNG blob and trigger the download
+      const pngUrl = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = pngUrl;
+      a.download = "chalkboard_drawing.png";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(pngUrl);
+    });
+  };
+
+});
 
     function startDrawing(event) {
       event.preventDefault();
@@ -101,7 +157,7 @@
       line.setAttribute("x2", offsetX);
       line.setAttribute("y2", offsetY);
       line.setAttribute("stroke", isErasing ? "black" : "white");
-      line.setAttribute("stroke-width", isErasing ? 20 : 10);
+      line.setAttribute("stroke-width", document.getElementById("stroke-style").value);
       chalkOverlay.appendChild(line);
       lastX = offsetX;
       lastY = offsetY;
@@ -112,16 +168,17 @@
     }
 
     function getEventCoordinates(event) {
+      const rect = chalkOverlay.getBoundingClientRect();
       if (event.type.startsWith("touch")) {
         const touch = event.touches[0];
-        return { offsetX: touch.clientX, offsetY: touch.clientY };
+        return { offsetX: touch.clientX - rect.left, offsetY: touch.clientY - rect.top };
       } else {
-        return { offsetX: event.offsetX, offsetY: event.offsetY };
+        return { offsetX: event.clientX - rect.left, offsetY: event.clientY - rect.top };
       }
     }
 
     // Prevent scrolling when touching the chalkboard area
-    chalkboard.addEventListener("touchmove", function(event) {
+    chalkOverlay.addEventListener("touchmove", function(event) {
       event.preventDefault();
     }, { passive: false });
   });
