@@ -2,6 +2,11 @@
     margin: 0px;
     padding: 0px;
 }
+.game_row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .python_row {
     display: flex;
