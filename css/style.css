@@ -42,10 +42,7 @@ header {
 }
 .card {
     width:377px;
-    text-align: center;
     border: solid 2px darkorange;
-    align-items: center;
-    justify-content: center;
 
 }
 .card-title {
