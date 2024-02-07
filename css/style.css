@@ -4,10 +4,9 @@
 }
 
 .python_row {
-    border: solid 3px orange;
-    align-items: center;
+    display: flex;
     justify-content: center;
-
+    align-items: center;
 }
 
 p {
@@ -33,9 +32,12 @@ header {
     text-align: center;
 }
 .card {
-    width:400px;
+    width:377px;
     text-align: center;
     border: solid 2px darkorange;
+    align-items: center;
+    justify-content: center;
+
 }
 .card-title {
     color: darkorange;
@@ -43,7 +45,6 @@ header {
     border-radius: 4px 10px;
     text-align: center;
     width: 200px;
-
 }
 
 .card-text {
