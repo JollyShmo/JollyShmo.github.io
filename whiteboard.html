@@ -12,30 +12,38 @@
     }
     .container {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
         height: 100vh;
     }
     #whiteboard-container {
-        margin-right: 20px; /* Adjust as needed */
+        flex-grow: 1;
+        width: 100%;
+        overflow: hidden;
     }
     #whiteboard {
         border: 1px solid #000;
-        width: 100%; /* Make canvas responsive */
-        max-width: 700px; /* Adjust as needed */
-        height: auto; /* Make canvas responsive */
+        width: 100%;
+        height: 100%;
+    }
+    .controls {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        text-align: center;
     }
     .control-container {
-        margin-bottom: 10px; /* Adjust as needed */
+        display: inline-block;
+        margin-right: 10px;
     }
 </style>
 </head>
 <body>
 <div class="container">
     <div id="whiteboard-container">
-        <canvas id="whiteboard" width="700" height="500"></canvas>
+        <canvas id="whiteboard"></canvas>
     </div>
-    <div>
+    <div class="controls">
         <div class="control-container">
             <label for="color">Color:</label>
             <input type="color" id="color" value="#000000">
@@ -69,13 +77,18 @@
         let isErasing = false;
         let lastX, lastY;
 
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight - document.querySelector('.controls').offsetHeight;
+
         function startDrawing(e) {
+            e.preventDefault();
             if (isErasing) return;
             isDrawing = true;
             [lastX, lastY] = [e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop];
         }
 
         function draw(e) {
+            e.preventDefault();
             if (!isDrawing || isErasing) return;
             ctx.strokeStyle = colorInput.value;
             ctx.lineWidth = lineWidthInput.value;
@@ -93,25 +106,22 @@
         }
 
         function erase(e) {
+            e.preventDefault();
             if (!isErasing) return;
-            ctx.clearRect(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop, lineWidthInput.value, lineWidthInput.value);
+            const touch = e.touches[0] || e.changedTouches[0];
+            ctx.clearRect(touch.clientX - canvas.offsetLeft, touch.clientY - canvas.offsetTop, lineWidthInput.value, lineWidthInput.value);
         }
 
-        canvas.addEventListener('touchstart', function (e) {
-            e.preventDefault();
-            startDrawing(e.touches[0]);
-        });
-
-        canvas.addEventListener('touchmove', function (e) {
-            e.preventDefault();
-            draw(e.touches[0]);
-        });
-
-        canvas.addEventListener('touchend', function (e) {
-            e.preventDefault();
-            stopDrawing();
-        });
-
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+        
+        canvas.addEventListener('touchstart', startDrawing);
+        canvas.addEventListener('touchmove', draw);
+        canvas.addEventListener('touchend', stopDrawing);
+        canvas.addEventListener('touchcancel', stopDrawing);
+        
         eraserButton.addEventListener('click', function () {
             isErasing = !isErasing;
             if (isErasing) {
