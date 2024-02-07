@@ -3,148 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Whiteboard</title>
-<!-- Bootstrap CSS -->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<title>Chalkboard</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <style>
-    body {
-        margin: 0;
-    }
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 100vh;
-    }
-    #whiteboard-container {
-    flex-grow: 1;
-    width: 100%;
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
     overflow: hidden;
-    touch-action: none; /* Disable browser default touch actions */
-}
-
-body {
-    overflow: hidden; /* Disable scrolling for the entire page */
-}
-    #whiteboard {
-        border: 1px solid #000;
-        width: 100%;
-        height: 100%;
-    }
-    .controls {
-        width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
-        text-align: center;
-    }
-    .control-container {
-        display: inline-block;
-        margin-right: 10px;
-    }
+  }
+  #chalkboard {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: relative;
+  }
+  #chalk-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  #toolbar {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+  }
+  #toolbar button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    padding: 5px;
+  }
+  #toolbar button.active {
+    background-color: #333;
+  }
 </style>
 </head>
 <body>
-<div class="container">
-    <div id="whiteboard-container">
-        <canvas id="whiteboard"></canvas>
-    </div>
-    <div class="controls">
-        <div class="control-container">
-            <label for="color">Color:</label>
-            <input type="color" id="color" value="#000000">
-        </div>
-        <div class="control-container">
-            <label for="lineWidth">Line Width:</label>
-            <input type="range" id="lineWidth" min="1" max="20" value="2">
-        </div>
-        <div class="control-container">
-            <label for="lineCap">Line Cap:</label>
-            <select id="lineCap" class="form-control">
-                <option value="round">Round</option>
-                <option value="square">Square</option>
-                <option value="butt">Butt</option>
-            </select>
-        </div>
-        <div class="control-container">
-            <button id="eraser" class="btn btn-primary">Eraser</button>
-        </div>
-    </div>
+<div id="chalkboard"></div>
+<svg id="chalk-overlay"></svg>
+
+<div id="toolbar">
+  <button id="draw" class="active"><i class="fas fa-pencil-alt"></i></button>
+  <button id="erase"><i class="fas fa-eraser"></i></button>
 </div>
+
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const canvas = document.getElementById('whiteboard');
-        const ctx = canvas.getContext('2d');
-        const colorInput = document.getElementById('color');
-        const lineWidthInput = document.getElementById('lineWidth');
-        const lineCapSelect = document.getElementById('lineCap');
-        const eraserButton = document.getElementById('eraser');
-        let isDrawing = false;
-        let isErasing = false;
-        let lastX, lastY;
+  document.addEventListener("DOMContentLoaded", function() {
+    const chalkboard = document.getElementById("chalkboard");
+    const chalkOverlay = document.getElementById("chalk-overlay");
+    const toolbar = document.getElementById("toolbar");
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight - document.querySelector('.controls').offsetHeight;
+    let isDrawing = true;
+    let isErasing = false;
+    let lastX, lastY;
 
-        function startDrawing(e) {
-            e.preventDefault();
-            if (isErasing) return;
-            isDrawing = true;
-            [lastX, lastY] = [e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop];
-        }
+    chalkOverlay.addEventListener("mousedown", startDrawing);
+    chalkOverlay.addEventListener("touchstart", startDrawing);
+    chalkOverlay.addEventListener("mousemove", draw);
+    chalkOverlay.addEventListener("touchmove", draw);
+    chalkOverlay.addEventListener("mouseup", stopDrawing);
+    chalkOverlay.addEventListener("touchend", stopDrawing);
+    chalkOverlay.addEventListener("mouseleave", stopDrawing);
 
-        function draw(e) {
-            e.preventDefault();
-            if (!isDrawing || isErasing) return;
-            ctx.strokeStyle = colorInput.value;
-            ctx.lineWidth = lineWidthInput.value;
-            ctx.lineCap = lineCapSelect.value;
-            ctx.beginPath();
-            ctx.moveTo(lastX, lastY);
-            const [x, y] = [e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop];
-            ctx.lineTo(x, y);
-            ctx.stroke();
-            [lastX, lastY] = [x, y];
-        }
-
-        function stopDrawing() {
-            isDrawing = false;
-        }
-
-        function erase(e) {
-            e.preventDefault();
-            if (!isErasing) return;
-            const touch = e.touches[0] || e.changedTouches[0];
-            ctx.clearRect(touch.clientX - canvas.offsetLeft, touch.clientY - canvas.offsetTop, lineWidthInput.value, lineWidthInput.value);
-        }
-
-        canvas.addEventListener('mousedown', startDrawing);
-        canvas.addEventListener('mousemove', draw);
-        canvas.addEventListener('mouseup', stopDrawing);
-        canvas.addEventListener('mouseout', stopDrawing);
-        
-        canvas.addEventListener('touchstart', startDrawing);
-        canvas.addEventListener('touchmove', draw);
-        canvas.addEventListener('touchend', stopDrawing);
-        canvas.addEventListener('touchcancel', stopDrawing);
-        
-        eraserButton.addEventListener('click', function () {
-            isErasing = !isErasing;
-            if (isErasing) {
-                eraserButton.textContent = 'Drawing';
-            } else {
-                eraserButton.textContent = 'Eraser';
-            }
-        });
-
-        // Add erase function to touchmove event listener when eraser mode is active
-        eraserButton.addEventListener('click', function () {
-            if (isErasing) {
-                canvas.addEventListener('touchmove', erase);
-            } else {
-                canvas.removeEventListener('touchmove', erase);
-            }
-        });
+    document.getElementById("draw").addEventListener("click", () => {
+      isErasing = false;
+      document.getElementById("draw").classList.add("active");
+      document.getElementById("erase").classList.remove("active");
     });
+
+    document.getElementById("erase").addEventListener("click", () => {
+      isErasing = true;
+      document.getElementById("erase").classList.add("active");
+      document.getElementById("draw").classList.remove("active");
+    });
+
+    function startDrawing(event) {
+      event.preventDefault();
+      isDrawing = true;
+      const { offsetX, offsetY } = getEventCoordinates(event);
+      lastX = offsetX;
+      lastY = offsetY;
+    }
+
+    function draw(event) {
+      if (!isDrawing) return;
+      const { offsetX, offsetY } = getEventCoordinates(event);
+      const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      line.setAttribute("x1", lastX);
+      line.setAttribute("y1", lastY);
+      line.setAttribute("x2", offsetX);
+      line.setAttribute("y2", offsetY);
+      line.setAttribute("stroke", isErasing ? "black" : "white");
+      line.setAttribute("stroke-width", isErasing ? 20 : 10);
+      chalkOverlay.appendChild(line);
+      lastX = offsetX;
+      lastY = offsetY;
+    }
+
+    function stopDrawing() {
+      isDrawing = false;
+    }
+
+    function getEventCoordinates(event) {
+      if (event.type.startsWith("touch")) {
+        const touch = event.touches[0];
+        return { offsetX: touch.clientX, offsetY: touch.clientY };
+      } else {
+        return { offsetX: event.offsetX, offsetY: event.offsetY };
+      }
+    }
+  });
 </script>
 </body>
 </html>
