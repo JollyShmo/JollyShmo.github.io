@@ -16,7 +16,7 @@
 
 p {
     font-size: medium;
-    color: black;
+    color: rgb(54, 56, 56);
 }
 
 .lead.text-center {
@@ -25,10 +25,8 @@ p {
 
 body {
     background-color: #333; /* Dark background color */
-    color:mediumseagreen; /* Light text color */
+    color:linen; /* Light text color */
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
 }
 
 a {
@@ -57,5 +55,5 @@ header {
     font-size: 16px;
 }
 #footer {
-    color: black;
+    color: darkcyan;
 }
