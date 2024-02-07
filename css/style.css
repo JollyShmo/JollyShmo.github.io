@@ -45,10 +45,4 @@ header {
 #footer {
     color: black;
 }
-.row {
-    display: flex;
-}
-.column {
-    flex: 1; /* This makes each column grow to fill the available space equally */
-    /* Additional column styles here */
-}  
+
