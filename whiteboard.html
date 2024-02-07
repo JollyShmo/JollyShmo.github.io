@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whiteboard</title>
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    #whiteboard-container {
+        margin-right: 20px; /* Adjust as needed */
+    }
+    #whiteboard {
+        border: 1px solid #000;
+    }
+    .control-container {
+        margin-bottom: 10px; /* Adjust as needed */
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div id="whiteboard-container">
+        <canvas id="whiteboard" width="700" height="500"></canvas>
+    </div>
+    <div>
+        <div class="control-container">
+            <label for="color">Color:</label>
+            <input type="color" id="color" value="#000000">
+        </div>
+        <div class="control-container">
+            <label for="lineWidth">Line Width:</label>
+            <input type="range" id="lineWidth" min="1" max="20" value="2">
+        </div>
+        <div class="control-container">
+            <label for="lineCap">Line Cap:</label>
+            <select id="lineCap" class="form-control">
+                <option value="round">Round</option>
+                <option value="square">Square</option>
+                <option value="butt">Butt</option>
+            </select>
+        </div>
+        <div class="control-container">
+            <button id="eraser" class="btn btn-primary">Eraser</button>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const canvas = document.getElementById('whiteboard');
+        const ctx = canvas.getContext('2d');
+        const colorInput = document.getElementById('color');
+        const lineWidthInput = document.getElementById('lineWidth');
+        const lineCapSelect = document.getElementById('lineCap');
+        const eraserButton = document.getElementById('eraser');
+        let isDrawing = false;
+        let isErasing = false;
+        let lastX, lastY;
+
+        function startDrawing(e) {
+            if (isErasing) return;
+            isDrawing = true;
+            [lastX, lastY] = [e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop];
+        }
+
+        function draw(e) {
+            if (!isDrawing || isErasing) return;
+            ctx.strokeStyle = colorInput.value;
+            ctx.lineWidth = lineWidthInput.value;
+            ctx.lineCap = lineCapSelect.value;
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            const [x, y] = [e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop];
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            [lastX, lastY] = [x, y];
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+        }
+
+        function erase(e) {
+            if (!isErasing) return;
+            ctx.clearRect(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop, lineWidthInput.value, lineWidthInput.value);
+        }
+
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+        
+        eraserButton.addEventListener('click', function () {
+            isErasing = !isErasing;
+            if (isErasing) {
+                eraserButton.textContent = 'Drawing';
+            } else {
+                eraserButton.textContent = 'Eraser';
+            }
+        });
+
+        // Add erase function to mousemove event listener when eraser mode is active
+        eraserButton.addEventListener('click', function () {
+            if (isErasing) {
+                canvas.addEventListener('mousemove', erase);
+            } else {
+                canvas.removeEventListener('mousemove', erase);
+            }
+        });
+    });
+</script>
+</body>
+</html>
