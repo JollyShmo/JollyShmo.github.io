@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chalkboard</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-
 <style>
   body, html {
     margin: 0;
@@ -101,13 +99,23 @@
     });
 
     document.getElementById("download").addEventListener("click", () => {
-  const svgData = new XMLSerializer().serializeToString(chalkOverlay);
-
-  const pdf = new jsPDF();
-  pdf.text(10, 10, 'Chalkboard Drawing');
-  pdf.addSVG(svgData, 10, 20, chalkOverlay.clientWidth - 20);
-
-  pdf.save('chalkboard_drawing.pdf');
+  const chalkOverlay = document.getElementById("chalkOverlay"); // Assuming chalkOverlay is the ID of the SVG element to be converted
+  
+  // Use html2canvas to render the SVG onto a canvas
+  html2canvas(chalkOverlay).then(canvas => {
+    // Convert the canvas to a JPEG blob
+    canvas.toBlob(function(blob) {
+      // Create a URL for the JPEG blob and trigger the download
+      const jpegUrl = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = jpegUrl;
+      a.download = "chalkboard_drawing.jpeg";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(jpegUrl);
+    }, "image/jpeg", 1); // Quality set to 1 for maximum quality
+  });
 });
 
     function startDrawing(event) {
