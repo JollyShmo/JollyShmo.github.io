@@ -17,6 +17,7 @@
     height: 100%;
     background-color: black;
     position: relative;
+    touch-action: none; /* Disable default touch behaviors */
   }
   #chalk-overlay {
     width: 100%;
@@ -59,17 +60,17 @@
     const chalkOverlay = document.getElementById("chalk-overlay");
     const toolbar = document.getElementById("toolbar");
 
-    let isDrawing = false;
+    let isDrawing = true;
     let isErasing = false;
     let lastX, lastY;
 
-    chalkOverlay.addEventListener("mousedown", startDrawing);
-    chalkOverlay.addEventListener("touchstart", startDrawing);
-    chalkOverlay.addEventListener("mousemove", draw);
-    chalkOverlay.addEventListener("touchmove", draw);
-    chalkOverlay.addEventListener("mouseup", stopDrawing);
-    chalkOverlay.addEventListener("touchend", stopDrawing);
-    chalkOverlay.addEventListener("mouseleave", stopDrawing);
+    chalkboard.addEventListener("mousedown", startDrawing);
+    chalkboard.addEventListener("touchstart", startDrawing);
+    chalkboard.addEventListener("mousemove", draw);
+    chalkboard.addEventListener("touchmove", draw);
+    chalkboard.addEventListener("mouseup", stopDrawing);
+    chalkboard.addEventListener("touchend", stopDrawing);
+    chalkboard.addEventListener("mouseleave", stopDrawing);
 
     document.getElementById("draw").addEventListener("click", () => {
       isErasing = false;
@@ -120,7 +121,7 @@
     }
 
     // Prevent scrolling when touching the chalkboard area
-    document.body.addEventListener("touchmove", function(event) {
+    chalkboard.addEventListener("touchmove", function(event) {
       event.preventDefault();
     }, { passive: false });
   });
