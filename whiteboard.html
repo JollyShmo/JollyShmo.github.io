@@ -118,6 +118,11 @@
         return { offsetX: event.offsetX, offsetY: event.offsetY };
       }
     }
+
+    // Prevent scrolling when touching the chalkboard area
+    document.body.addEventListener("touchmove", function(event) {
+      event.preventDefault();
+    }, { passive: false });
   });
 </script>
 </body>
