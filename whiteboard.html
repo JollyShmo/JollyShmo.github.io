@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chalkboard</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
 <style>
   body, html {
     margin: 0;
@@ -101,48 +103,10 @@
     document.getElementById("download").addEventListener("click", () => {
       const svgData = new XMLSerializer().serializeToString(chalkOverlay);
 
-      // Create a temporary SVG element to calculate its dimensions
-      const tempSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      tempSvg.innerHTML = svgData;
-      document.body.appendChild(tempSvg);
-
-      // Get the bounding box of the SVG content
-      const bbox = tempSvg.getBBox();
-
-      // Remove the temporary SVG element
-      document.body.removeChild(tempSvg);
-
-      // Create a canvas element with dimensions based on the bounding box
-      const canvas = document.createElement("canvas");
-      const ctx = canvas.getContext("2d");
-      canvas.width = bbox.width;
-      canvas.height = bbox.height;
-
-      // Create an image element and set its source to the SVG data
-      const img = new Image();
-      const svgBlob = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
-      const url = URL.createObjectURL(svgBlob);
-      img.src = url;
-
-      // Wait for the image to load
-      img.onload = function() {
-        // Draw the SVG image onto the canvas
-        ctx.drawImage(img, 0, 0);
-
-        // Convert the canvas to a PNG blob
-        canvas.toBlob(function(blob) {
-          // Create a URL for the PNG blob and trigger the download
-          const pngUrl = URL.createObjectURL(blob);
-          const a = document.createElement("a");
-          a.href = pngUrl;
-          a.download = "chalkboard_drawing.png";
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          URL.revokeObjectURL(pngUrl);
-        });
-      };
-
+      const pdf = new jsPDF('p', 'mm', [chalkOverlay.clientWidth, chalkOverlay.clientHeight]);
+      pdf.text(10, 10, 'Chalkboard Drawing');
+      pdf.addImage(svgData, 'SVG', 0, 0, chalkOverlay.clientWidth, chalkOverlay.clientHeight);
+      pdf.save('chalkboard_drawing.pdf');
     });
 
     function startDrawing(event) {
