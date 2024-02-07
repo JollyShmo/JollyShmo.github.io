@@ -3,6 +3,13 @@
     padding: 0px;
 }
 
+.python_row {
+    border: solid 3px orange;
+    align-items: center;
+    justify-content: center;
+
+}
+
 p {
     font-size: medium;
     color: black;
@@ -45,4 +52,3 @@ header {
 #footer {
     color: black;
 }
-
