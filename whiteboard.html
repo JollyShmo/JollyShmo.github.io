@@ -54,18 +54,19 @@
   <button id="home"><i class="fas fa-home" style="color: gray;"></i></button>
   <button id="draw" class="active"><i class="fas fa-pencil-alt"></i></button>
   <button id="erase"><i class="fas fa-eraser"></i></button>
-  <select id="stroke-style">
+  <select id="stroke-style" style="height: 32px;">
     <option value="5">5</option>
     <option value="10">10</option>
     <option value="15">15</option>
     <option value="30">30</option>
   </select>
-  <select id="line-style">
+  <select id="line-style" style="height: 32px;>
     <option value="round">Round</option>
     <option value="square">Square</option>
     <option value="butt">Butt</option>
   </select>
-  <button id="clear-all"><i class="fas fa-trash-alt"></i> Erase All</button>
+  <hr>
+  <button id="clear-all" style="color: darkred;"><i class="fas fa-trash-alt"></i> Clear</button>
   <button id="download"><i class="fas fa-download"></i> Save</button>
   <input type="number" id="save-width" placeholder="Width px">
   <input type="number" id="save-height" placeholder="Height px">
@@ -97,7 +98,6 @@
 
     homeButton.addEventListener("click", () => {
     const websiteURL = "https://jollyshmo.github.io";
-    
     // Navigate to the website
     window.location.href = websiteURL;
 
