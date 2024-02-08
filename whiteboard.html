@@ -72,6 +72,7 @@
   document.addEventListener("DOMContentLoaded", function() {
     const chalkOverlay = document.getElementById("chalk-overlay");
     const toolbar = document.getElementById("toolbar");
+    const homeButton = document.getElementById("home");
     const drawButton = document.getElementById("draw");
     const eraseButton = document.getElementById("erase");
     const strokeStyleSelect = document.getElementById("stroke-style");
@@ -91,6 +92,14 @@
     chalkOverlay.addEventListener("touchend", stopDrawing);
     chalkOverlay.addEventListener("mouseleave", stopDrawing);
 
+    homeButton.addEventListener("click", () => {
+    const websiteURL = "https://jollyshmo.github.io";
+    
+    // Navigate to the website
+    window.location.href = websiteURL;
+
+    });
+    
     drawButton.addEventListener("click", () => {
       isErasing = false;
       drawButton.classList.add("active");
