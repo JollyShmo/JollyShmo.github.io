@@ -41,6 +41,7 @@ header {
 .card {
     width:377px;
     border: solid 2px darkorange;
+    box-shadow: 10px 8px #222;
 
 }
 .card-title {
