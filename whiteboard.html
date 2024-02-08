@@ -39,11 +39,20 @@
     color: white;
     padding: 5px;
     margin-right: 3px;
-    font-size: 32px;
+    font-size: medium;
   }
   #toolbar button.active {
     background-color: #333;
     color: cornflowerblue;
+  }
+
+  #dimensions {
+    width: 100%;
+  }
+  #item-dimensions {
+    display: inline-block; /* Make paragraphs appear inline */
+    margin: 0 10px; /* Add some space between paragraphs */
+
   }
 </style>
 </head>
@@ -68,10 +77,12 @@
   <hr>
   <button id="clear-all" style="color: darkred;"><i class="fas fa-trash-alt"></i> Clear</button>
   <button id="download"><i class="fas fa-download"></i> Save</button>
-  <input type="number" id="save-width" placeholder="Width px">
-  <input type="number" id="save-height" placeholder="Height px">
-<p style="color: darkslategray;">Width: <span id="width"></span>px</p>
-<p style="color: darkslategray;">Height: <span id="height"></span>px</p>
+  <input type="number" id="save-width" placeholder="Width px" style="width: 100px">
+  <input type="number" id="save-height" placeholder="Height px" style="width: 100px">
+<div id="dimensions" style="color: darkslategray;">
+  <p id="item-dimensions">Width: <span id="width"></span>px</p>
+  <p id="item-dimensions">Height: <span id="height"></span>px</p>  
+</div>
 
 </div>
 
