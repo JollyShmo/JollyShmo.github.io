@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let isDrawing = false;
     let isErasing = false;
     let lastX, lastY;
+    let previousStrokeStyle = strokeStyleSelect.value;
 
     chalkOverlay.addEventListener("mousedown", startDrawing);
     chalkOverlay.addEventListener("touchstart", startDrawing);
@@ -32,12 +33,16 @@ document.addEventListener("DOMContentLoaded", function() {
 isErasing = false;
 drawButton.classList.add("active");
 eraseButton.classList.remove("active");
+strokeStyleSelect.value = previousStrokeStyle;
     });
 
     eraseButton.addEventListener("click", () => {
 isErasing = true;
 eraseButton.classList.add("active");
 drawButton.classList.remove("active");
+previousStrokeStyle = strokeStyleSelect.value;
+strokeStyleSelect.value = "30";
+
     });
 
     clearAllButton.addEventListener("click", () => {
