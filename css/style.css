@@ -21,6 +21,8 @@ p {
 
 .lead.text-center {
     color: whitesmoke;
+    padding-left: 20%;
+    padding-right: 20%;
 }
 
 body {
