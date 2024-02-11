@@ -1,7 +1,8 @@
 # Welcome to Jolly Joe's Portfolio
 
-  - I plan to use this for my portfolio and be able to showcase my work
-  - Havard University - `CS50 Python` (Certified)
+I plan to use this for my portfolio and be able to showcase my work.
+
+  > Havard University - `CS50 Python` (Certified)
 # Itch Games  
   - Games built with a 2 week deadline to make a prototype
   - PC browser playable, downloadable
