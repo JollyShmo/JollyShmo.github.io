@@ -54,13 +54,24 @@
     display: inline-block;
     margin: 0 10px;
   }
+
+  .extra-items-here {
+      display: inline-block;
+      background-color: palegoldenrod;
+      padding: 0px 5px;
+      margin: 10px;
+      text-align: center;
+      border-radius: 0px 0px 10px 10px;
+      width: max-content;
+    }
+
 </style>
 </head>
 <body>
 <div id="chalkboard"></div>
 <svg id="chalk-overlay"></svg>
-<div id="toolbar" style="border: solid 3px #222; border-radius: 5px;">
-  <button id="home"><i class="fas fa-home" style="color: gray;"></i></button>
+<div id="toolbar" style="border: solid 3px seagreen; border-radius: 5px;">
+  <button id="home"><i class="fas fa-home" style="color: seagreen;"></i></button>
   <button id="draw" class="active"><i class="fas fa-pencil-alt"></i></button>
   <button id="erase"><i class="fas fa-eraser"></i></button>
   <select id="stroke-style" style="height: 32px;">
@@ -74,17 +85,19 @@
     <option value="square">Square</option>
     <option value="butt">Butt</option>
   </select>
-  <p style="text-shadow: 1px 1px darkgrey;" id="item-dimensions">Drawing Board v0.1</p>
+  <p style="text-shadow: 1px 1px seagreen;" id="item-dimensions">Drawing Board v0.2</p>
 
   <hr>
-  <button id="clear-all" style="color: darkred;"><i class="fas fa-trash-alt"></i> Clear</button>
-  <button id="download"><i class="fas fa-download"></i> Save</button>
   <input type="number" id="save-width" placeholder="Width px" style="width: 100px">
   <input type="number" id="save-height" placeholder="Height px" style="width: 100px">
 <div id="dimensions" style="color: darkslategray;">
-  <p id="item-dimensions">Width: <span id="width"></span>px</p>
-  <p id="item-dimensions">Height: <span id="height"></span>px</p> 
+  <p class="extra-items-here" id="item-dimensions">Width: <span id="width"></span></p>
+  <p class="extra-items-here" id="item-dimensions">Height: <span id="height"></span></p> 
+  <button id="download"><i class="fas fa-download"></i> Save</button>
+  <button id="clear-all" style="background-color:#222; border: solid 2px darkred;border-radius:10px 10px; color: crimson;"><i class="fas fa-trash-alt"></i> Clear</button>
+
 </div>
+
 <!--add to the overlay here-->
 </div>
 
