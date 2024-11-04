@@ -6,133 +6,88 @@
     <meta name="description" content="Jolly Joe - Game Designer and Developer">
     <title>Jolly Joe's Portfolio</title>
 
-    <!-- Add your CSS stylesheets here -->
+    <!-- Modernized CSS stylesheets -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
 
-    <!-- Add your JavaScript files here -->
-    <!--<script src="/js/main.js"></script>-->
+    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/d4094e761b.js" crossorigin="anonymous"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#"><i class="fa-solid fa-terminal"></i> Jolly Joe</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">
-                            <i class="fa-solid fa-address-card"></i> About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#demo-games">
-                            <i class="fa-brands fa-unity"></i> Two Week Games</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">
-                            <i class="fa-brands fa-python"></i> Python Programs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: lightcyan;" href="/drawboard.html">
-                            <i class="fa-solid fa-chalkboard-user"></i> Drawing Board</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Main Content -->
-    <div class="container mt-5">
-        <!-- About Section -->
-        <section id="about">
-            <br>
-            <h2 class="text-center mb-4"><i class="fa-solid fa-address-card"></i> About Me</h2>
-        <div id="bio">
-            <p class="lead text-center">
-                Welcome to my portfolio! I am a passionate game designer and 
-                developer with a strong background in creating immersive and 
-                engaging experiences. 
-            </p>
-            <p class="lead text-center">
-                Completing Harvard University's CS50 Python course early this year, I am excited to expand 
-                my knowledge with HTML5, CSS, JavaScript and more. Solving 
-                problems is more about making solutions.
-            </p>
-        </div>
-        </section>
-<!-- Portfolio Section -->
-<div class="games_row">
-<section id="demo-games">
-    <h2 class="text-center mb-4" style="border: solid 3px #222; border-radius: 5px 10px; width: 45%; margin: auto;">
-        <i class="fa-brands fa-unity"></i> 
-            Two Week Games    
-    </h2>
-    <p class="text-center" style="color: rgb(220, 240, 216);">
-        Two weeks to make a game, here are some of my entiries into different game jams.
-    </p> 
-    <p class="text-center" style="color: rgb(220, 240, 216);">
-        Please Enjoy.
-    </p>
-        <div class="text-center col">
-            <iframe src="https://itch.io/embed/2177013?bg_color=1a4e6e&amp;fg_color=d6dcd6&amp;link_color=5a0505&amp;border_color=3da73f" width="300" height="150">
-                <a href="https://jollyjoe.itch.io/skys-the-limit">Sky's the Limit by Jolly Joe</a></iframe>            
-            <iframe src="https://itch.io/embed/805734?bg_color=88b06a&amp;fg_color=222222&amp;link_color=5a0505&amp;border_color=dd6868" width="300" height="150">
-                <a href="https://jollyjoe.itch.io/sweeta-pea-robytes-hunger">Sweet Pea &amp; Robyte's Hunger by Jolly Joe</a></iframe>      
-            <iframe src="https://itch.io/embed/754327?bg_color=8d9a10&amp;fg_color=000000&amp;link_color=5a0505&amp;border_color=dd5e65" width="300" height="150">
-                <a href="https://jollyjoe.itch.io/tooth-break-demo">Tooth Break Demo by Jolly Joe</a></iframe>        
-        </div>
-    </section>
-</div>
-        <!-- Projects Section -->
-        <div class="python_row">
-        <section id="projects">
-            <h2 class="text-center mb-4" style="color: orange; border: solid 3px #222; border-radius: 5px 10px;">
-                <i class="fa-brands fa-python"></i> 
-                Python Programs
-            </h2>
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">CSV Blender Importer</h5>
-                    <p class="card-text">
-                        Blender Addon to import CSV files made with RenderDoc, as a 3d mesh.</p>
-                    <a href="https://github.com/JollyShmo/CSV_Import_Blender" class="btn btn-primary">
-                        View Project</a>
-                </div>
-            </div>
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">CSV Peek</h5>
-                    <p class="card-text">
-                        Take a csv file and look at each header, creates a 3d visual and can 
-                        export it to 3 different file types .obj .ply and .stl</p>
-                    <a href="https://github.com/JollyShmo/CSV_Peek" class="btn btn-primary">
-                        View Project</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Controller-Debugger</h5>
-                    <p class="card-text">Lets you see the controllers axis range and buttons 
-                        being pressed from a PC controller.</p>
-                    <a href="https://github.com/JollyShmo/Controller-Debugger" class="btn btn-primary">
-                        View Project</a>
-                </div>
-            </div>
-
-            <!-- Add more projects as needed -->
-        </section>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">Jolly Joe</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#demo-games">Two Week Games</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Python Programs</a></li>
+                <li class="nav-item"><a class="nav-link" href="/drawboard.html">Drawing Board</a></li>
+            </ul>
         </div>
     </div>
-    <!-- Footer -->
-    <footer class="bg-dark text-light text-center py-3">
-        <p id="footer">&copy; 2024 Jolly Joe - Website Designer and Developer</p>
-    </footer>
+</nav>
 
-    <!-- Bootstrap and Other Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Main Content -->
+<main class="container mt-5 pt-4">
+    <!-- About Section -->
+    <section id="about" class="text-center mb-5">
+        <h2 class="mb-4">About Me</h2>
+        <p class="lead">
+            I am a passionate game designer and developer with experience in creating immersive and engaging experiences. I completed Harvard University's CS50 Python course and am expanding my knowledge with HTML5, CSS, and JavaScript.
+        </p>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="demo-games" class="mb-5">
+        <h2 class="text-center mb-4">Two Week Games</h2>
+        <div class="row">
+            <!-- Game cards -->
+            <div class="col-lg-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <iframe src="https://itch.io/embed/2177013?bg_color=1a4e6e&amp;fg_color=d6dcd6&amp;link_color=5a0505&amp;border_color=3da73f" width="100%" height="150"></iframe>
+                    <div class="card-body">
+                        <h5 class="card-title">Sky's the Limit</h5>
+                        <p class="card-text">A game created for a two-week jam with the theme of exploration.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Additional game cards -->
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="mb-5">
+        <h2 class="text-center mb-4">Python Programs</h2>
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">CSV Blender Importer</h5>
+                        <p class="card-text">Blender Addon to import CSV files made with RenderDoc, as a 3D mesh.</p>
+                        <a href="https://github.com/JollyShmo/CSV_Import_Blender" class="btn btn-outline-primary">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Additional project cards -->
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-light text-center py-3 shadow-sm">
+    <p>&copy; 2024 Jolly Joe - Game Designer and Developer</p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
