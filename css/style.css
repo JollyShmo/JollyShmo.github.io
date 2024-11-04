@@ -7,7 +7,11 @@
     justify-content: center;
     align-items: center;
 }
-
+.moddb_tool {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .python_row {
     display: flex;
     justify-content: center;
