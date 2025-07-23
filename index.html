@@ -15,20 +15,30 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-lg py-2" style="backdrop-filter: blur(8px); background: rgba(24,28,36,0.92); border-bottom: 2px solid #3fd0ff;">
         <div class="container">
-            <a class="navbar-brand" href="#"><i class="fa-solid fa-terminal"></i> Jolly Joe</a>
+            <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#" style="font-size:1.5rem; letter-spacing:0.04em; color:#3fd0ff;">
+                <i class="fa-solid fa-terminal"></i> Jolly Joe
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about"><i class="fa-solid fa-address-card"></i> About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#demo-games"><i class="fa-brands fa-unity"></i> Two Week Games</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects"><i class="fa-brands fa-python"></i> Python Programs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#xiii"><i class="fa-solid fa-file-code"></i> XIII Wiki</a></li>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-1">
                     <li class="nav-item">
-                        <a class="nav-link" style="color: lightcyan;" href="/drawboard.html">
+                        <a class="nav-link px-4" href="#about"><i class="fa-solid fa-address-card"></i> About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-4" href="#demo-games"><i class="fa-brands fa-unity"></i> Two Week Games</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-4" href="#projects"><i class="fa-brands fa-python"></i> Python Programs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-4" href="#xiii"><i class="fa-solid fa-file-code"></i> XIII Wiki</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-4" style="color: #3fd0ff; font-weight:600;" href="/drawboard.html">
                             <i class="fa-solid fa-chalkboard-user"></i> Drawing Board
                         </a>
                     </li>
@@ -38,9 +48,9 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="container mt-5 pt-5">
+    <ma class="container mt-5 pt-5">
         <!-- About Section -->
-        <section id="about" class="my-5">
+        <section id="about" class="my-5" tabindex="-1">
             <h2 class="text-center mb-4"><i class="fa-solid fa-address-card"></i> About Me</h2>
             <div id="bio">
                 <p class="lead text-center">
@@ -51,9 +61,8 @@
                 </p>
             </div>
         </section>
-
         <!-- Games Section -->
-        <section id="demo-games" class="my-5">
+        <section id="demo-games" class="my-5" tabindex="-1">
             <h2 class="text-center mb-4 border rounded" style="max-width:400px;margin:auto;">
                 <i class="fa-brands fa-unity"></i> Two Week Games
             </h2>
@@ -69,7 +78,7 @@
         <hr>
 
         <!-- ModDB & Python Programs Sections -->
-        <section id="projects" class="row my-5 g-4">
+        <section id="projects" class="row my-5 g-4" tabindex="-1">
             <!-- ModDB Tools -->
             <div class="col-lg-6">
                 <div class="card h-100 shadow-sm">
@@ -124,7 +133,7 @@
         </section>
 
         <!-- XIII Wiki and Cheat Codes -->
-        <section id="xiii" class="my-5 text-center">
+        <section id="xiii" class="my-5 text-center" tabindex="-1">
             <div class="card mx-auto" style="max-width:480px;">
                 <div class="card-body">
                     <h3 class="card-title mb-3">XIII (Classic) Cheat Codes</h3>
@@ -199,6 +208,57 @@
                 width: 95% !important;
             }
         }
+        .navbar {
+            box-shadow: 0 4px 24px rgba(63,208,255,0.08), 0 2px 12px rgba(24,28,36,0.18);
+            border-bottom: 2px solid #3fd0ff;
+            background: rgba(24,28,36,0.92) !important;
+            backdrop-filter: blur(8px);
+        }
+        .navbar-brand {
+            color: #3fd0ff !important;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            font-size: 1.5rem;
+            text-shadow: 0 2px 8px #1e90ff22;
+        }
+        .navbar-nav .nav-link {
+            border-radius: 16px 16px 0 0;
+            margin-right: 2px;
+            color: #e6e6e6 !important;
+            font-weight: 500;
+            font-size: 1.08rem;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+            position: relative;
+            z-index: 1;
+        }
+        .navbar-nav .nav-link.active, .navbar-nav .nav-link:focus {
+            background: linear-gradient(90deg, #23272f 80%, #3fd0ff22 100%);
+            color: #3fd0ff !important;
+            border-radius: 16px 16px 0 0;
+            font-weight: 700;
+            box-shadow: 0 4px 24px #3fd0ff22;
+            border-bottom: 3px solid #3fd0ff;
+            z-index: 2;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #3fd0ff !important;
+            background: #23272f;
+            box-shadow: 0 2px 8px #3fd0ff22;
+        }
+        @media (max-width: 991px) {
+            .navbar-nav .nav-link {
+                border-radius: 10px;
+                margin-bottom: 4px;
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+            .navbar-nav .nav-link.active {
+                border-radius: 10px;
+                border-bottom: 2px solid #3fd0ff;
+            }
+        }
     </style>
 
     <!-- Footer -->
@@ -208,5 +268,30 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    // Smooth scroll with offset for anchor links
+    function scrollWithOffset(event) {
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            const target = document.querySelector(href);
+            if (target) {
+                event.preventDefault();
+                const yOffset = -90; // buffer for fixed navbar
+                const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+                history.replaceState(null, '', href);
+            }
+        }
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+            target: '#navbarNav',
+            offset: 90
+        });
+        document.querySelectorAll('.navbar-nav .nav-link[href^="#"]').forEach(function(link) {
+            link.addEventListener('click', scrollWithOffset);
+        });
+    });
+    </script>
 </body>
 </html>
