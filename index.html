@@ -6,12 +6,11 @@
     <meta name="description" content="Jolly Joe - Game Designer and Developer">
     <title>Jolly Joe's Portfolio</title>
 
-    <!-- Add your CSS stylesheets here -->
+    <!-- CSS Stylesheets -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
 
-    <!-- Add your JavaScript files here -->
-    <!--<script src="/js/main.js"></script>-->
+    <!-- FontAwesome Icons -->
     <script src="https://kit.fontawesome.com/d4094e761b.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -23,26 +22,15 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">
-                            <i class="fa-solid fa-address-card"></i> About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#demo-games">
-                            <i class="fa-brands fa-unity"></i> Two Week Games</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">
-                            <i class="fa-brands fa-python"></i> Python Programs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#xiii">
-                            <i class="fa-solid fa-file-code"></i> XIII Wiki</a>
-                    </li>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about"><i class="fa-solid fa-address-card"></i> About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#demo-games"><i class="fa-brands fa-unity"></i> Two Week Games</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects"><i class="fa-brands fa-python"></i> Python Programs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#xiii"><i class="fa-solid fa-file-code"></i> XIII Wiki</a></li>
                     <li class="nav-item">
                         <a class="nav-link" style="color: lightcyan;" href="/drawboard.html">
-                            <i class="fa-solid fa-chalkboard-user"></i> Drawing Board</a>
+                            <i class="fa-solid fa-chalkboard-user"></i> Drawing Board
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -50,239 +38,175 @@
     </nav>
 
     <!-- Main Content -->
-    <div class="container mt-5">
+    <main class="container mt-5 pt-5">
         <!-- About Section -->
-        <section id="about">
-            <br>
+        <section id="about" class="my-5">
             <h2 class="text-center mb-4"><i class="fa-solid fa-address-card"></i> About Me</h2>
-        <div id="bio">
-            <p class="lead text-center">
-                Welcome to my portfolio! I am a passionate game designer and 
-                developer with a strong background in creating immersive and 
-                engaging experiences. 
-            </p>
-            <p class="lead text-center">
-                Completing Harvard University's CS50 Python course early this year, I am excited to expand 
-                my knowledge with HTML5, CSS, JavaScript and more. Solving 
-                problems is more about making solutions, that will aid you in the future. 
-            </p>
-        </div>
+            <div id="bio">
+                <p class="lead text-center">
+                    Hello and welcome! I'm Jolly Joe—a passionate game designer, developer, and certified Python programmer. I love crafting immersive experiences and unique game tools.
+                </p>
+                <p class="lead text-center">
+                    After completing Harvard's CS50 Python course, I've been expanding my skills in HTML5, CSS, and JavaScript. I believe the best solutions are the ones you create for tomorrow's challenges.
+                </p>
+            </div>
         </section>
-<!-- Portfolio Section -->
-<div class="games_row">
-<section id="demo-games">
-    <h2 class="text-center mb-4" style="border: solid 3px #222; border-radius: 5px 10px; width: 45%; margin: auto;">
-        <i class="fa-brands fa-unity"></i> 
-            Two Week Games    
-    </h2>
-    <p class="text-center" style="color: rgb(220, 240, 216);">
-        Two weeks to make a game (I made all the assets from scratch), here are some of my entiries into different game jams.
-    </p> 
-    <p class="text-center" style="color: rgb(220, 240, 216);">
-        Please Enjoy.
-    </p>
-        <div class="text-center col">
-            <iframe src="https://itch.io/embed/2177013?bg_color=1a4e6e&amp;fg_color=d6dcd6&amp;link_color=5a0505&amp;border_color=3da73f" width="300" height="150">
-                <a href="https://jollyjoe.itch.io/skys-the-limit">Sky's the Limit by Jolly Joe</a></iframe>            
-            <iframe src="https://itch.io/embed/805734?bg_color=88b06a&amp;fg_color=222222&amp;link_color=5a0505&amp;border_color=dd6868" width="300" height="150">
-                <a href="https://jollyjoe.itch.io/sweeta-pea-robytes-hunger">Sweet Pea &amp; Robyte's Hunger by Jolly Joe</a></iframe>      
-            <iframe src="https://itch.io/embed/754327?bg_color=8d9a10&amp;fg_color=000000&amp;link_color=5a0505&amp;border_color=dd5e65" width="300" height="150">
-                <a href="https://jollyjoe.itch.io/tooth-break-demo">Tooth Break Demo by Jolly Joe</a></iframe>        
-        </div>
-    </section>
-</div>
-<hr>
-<!-- ModDB and Python Programs Sections Side by Side -->
-<div class="container mt-5">
-    <div class="row">
-        <!-- ModDB Tool Section -->
-        <div class="col-lg-6 mb-4">
-            <section id="moddb-tool" class="text-center card-container" style="color: rgb(105, 72, 72); border: solid 3px #222; border-radius: 5px 10px;">
-                <h2 class="mb-4">ModDB Tools</h2>
-                <div class="card shadow-sm h-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-center" style="text-shadow: 1px 1px; color: rgb(53, 175, 53);">Carnivores 2</h5>
-                        <p class="text-center">This toolkit includes three tools to simplify 3D modeling and graphics tasks:</p>
-                        <ul class="list-unstyled text-center" style="color: rgb(105, 72, 72);">
-                            <li><strong>OBJ_VN_FIXXER</strong>: Improves OBJ files by fixing lighting and shading.</li>
-                            <li><strong>MTL File Generator</strong>: Quickly creates material files for OBJ models.</li>
-                            <li><strong>TGA to PNG Converter</strong>: Converts TGA images to PNG in batch.</li>
-                        </ul>
-                        <a href="https://www.moddb.com/games/carnivores-2/downloads/jolly-carnivores-2-toolkit" class="btn btn-outline-primary mb-3">
-                            View Carnivores 2 Toolkit
-                        </a>
-                        <hr>
-                        <h5 class="card-title text-center" style="text-shadow: 1px 1px; color: rgb(187, 139, 139);">Thief: The Dark Project</h5>
-                        <p class="text-center">The Jolly Thief Toolkit includes two applications:</p>
-                        <ul class="list-unstyled text-center">
-                            <li><strong>Jolly Thief Mesh Parser v7</strong>: Converts Thief object files into OBJ format for easy 3D rendering.</li>
-                            <li><strong>Jolly Thief MTL Maker v7</strong>: Parses material lists from Thief files and generates MTL files for better material management.</li>
-                        </ul>
-                        <a href="https://www.moddb.com/games/thief-the-dark-project/downloads/jolly-thief-toolkit-v1" class="btn btn-outline-primary mb-3">
-                            View Thief: The Dark Project Toolkit
-                        </a>
-                        <hr>
-                        <h5 class="card-title" style="color: rgb(105, 34, 153)(0, 255, 85); border: solid 3px #222; border-radius: 5px 10px;">ModDB Blog</h5>
-                        <p class="card-text">
-                            Python Certified, Game Developer, and Tool Creator. Passionate about extracting models from beloved games like Carnivores 2, Thief: The Dark Project, and more.
-                        </p>
-                        <a href="https://www.moddb.com/members/jolly-joe/blogs" class="btn btn-outline-primary">
-                            My DevLog Blog
-                        </a>
-                    </div>
-                </div>
-            </section>
-        </div>
 
-        <!-- Python Programs Section -->
-        <div class="col-lg-6 mb-4">
-            <section id="projects">
-                <h2 class="text-center mb-4" style="color: orange; border: solid 3px #222; border-radius: 5px 10px;">
-                    <i class="fa-brands fa-python"></i> Python Programs
-                </h2>
-                <div class="card mb-4">
+        <!-- Games Section -->
+        <section id="demo-games" class="my-5">
+            <h2 class="text-center mb-4 border rounded" style="max-width:400px;margin:auto;">
+                <i class="fa-brands fa-unity"></i> Two Week Games
+            </h2>
+            <p class="text-center text-muted">
+                Every game below was built from scratch—art, code, and design—in just two weeks as part of various game jams.
+            </p>
+            <div class="d-flex justify-content-center flex-wrap gap-3">
+                <iframe title="Sky's the Limit" src="https://itch.io/embed/2177013?bg_color=1a4e6e&amp;fg_color=d6dcd6&amp;link_color=5a0505&amp;border_color=3da73f" width="300" height="150" frameborder="0"></iframe>
+                <iframe title="Sweet Pea & Robyte's Hunger" src="https://itch.io/embed/805734?bg_color=88b06a&amp;fg_color=222222&amp;link_color=5a0505&amp;border_color=dd6868" width="300" height="150" frameborder="0"></iframe>
+                <iframe title="Tooth Break Demo" src="https://itch.io/embed/754327?bg_color=8d9a10&amp;fg_color=000000&amp;link_color=5a0505&amp;border_color=dd5e65" width="300" height="150" frameborder="0"></iframe>
+            </div>
+        </section>
+        <hr>
+
+        <!-- ModDB & Python Programs Sections -->
+        <section id="projects" class="row my-5 g-4">
+            <!-- ModDB Tools -->
+            <div class="col-lg-6">
+                <div class="card h-100 shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">CSV Blender Importer</h5>
-                        <p class="card-text">
-                            Blender Addon to import CSV files made with RenderDoc, as a 3D mesh.
+                        <h3 class="card-title text-success mb-3">ModDB Toolkits</h3>
+                        <h5 class="mb-2 text-primary">Carnivores 2 Toolkit</h5>
+                        <ul>
+                            <li><strong>OBJ_VN_FIXXER</strong>: Enhance OBJ files with better lighting and shading.</li>
+                            <li><strong>MTL File Generator</strong>: Quickly create material files for OBJ models.</li>
+                            <li><strong>TGA to PNG Converter</strong>: Batch convert TGA images to PNG.</li>
+                        </ul>
+                        <a href="https://www.moddb.com/games/carnivores-2/downloads/jolly-carnivores-2-toolkit" class="btn btn-outline-primary mb-3">View Toolkit</a>
+                        <hr>
+                        <h5 class="mb-2 text-danger">Thief: The Dark Project Toolkit</h5>
+                        <ul>
+                            <li><strong>Jolly Thief Mesh Parser v7</strong>: Convert Thief object files to OBJ for 3D rendering.</li>
+                            <li><strong>Jolly Thief MTL Maker v7</strong>: Generate MTL files from Thief material lists.</li>
+                        </ul>
+                        <a href="https://www.moddb.com/games/thief-the-dark-project/downloads/jolly-thief-toolkit-v1" class="btn btn-outline-primary mb-3">View Toolkit</a>
+                        <hr>
+                        <h5 class="text-secondary">ModDB Blog</h5>
+                        <p>
+                            Certified Python developer, game tool creator, and enthusiast for extracting assets from classic games like Carnivores 2 and Thief: The Dark Project.
                         </p>
-                        <a href="https://github.com/JollyShmo/CSV_Import_Blender" class="btn btn-primary">
-                            View Project
-                        </a>
+                        <a href="https://www.moddb.com/members/jolly-joe/blogs" class="btn btn-outline-primary">Visit My DevLog</a>
                     </div>
                 </div>
-                <div class="card mb-4">
+            </div>
+            <!-- Python Programs -->
+            <div class="col-lg-6">
+                <div class="card h-100 shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">CSV Peek</h5>
-                        <p class="card-text">
-                            Take a CSV file and look at each header; creates a 3D visual and exports it to .obj, .ply, and .stl formats.
-                        </p>
-                        <a href="https://github.com/JollyShmo/CSV_Peek" class="btn btn-primary">
-                            View Project
-                        </a>
+                        <h3 class="card-title text-warning mb-3"><i class="fa-brands fa-python"></i> Python Programs</h3>
+                        <div class="mb-4">
+                            <h5>CSV Blender Importer</h5>
+                            <p>Blender addon to import CSV files (from RenderDoc) as 3D meshes.</p>
+                            <a href="https://github.com/JollyShmo/CSV_Import_Blender" class="btn btn-primary">View Project</a>
+                        </div>
+                        <div class="mb-4">
+                            <h5>CSV Peek</h5>
+                            <p>Visualize CSV data as 3D objects; export to .obj, .ply, and .stl formats.</p>
+                            <a href="https://github.com/JollyShmo/CSV_Peek" class="btn btn-primary">View Project</a>
+                        </div>
+                        <div>
+                            <h5>Controller-Debugger</h5>
+                            <p>Monitor and visualize controller axis ranges and button presses in real time.</p>
+                            <a href="https://github.com/JollyShmo/Controller-Debugger" class="btn btn-primary">View Project</a>
+                        </div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Controller-Debugger</h5>
-                        <p class="card-text">
-                            Lets you see the controller's axis range and buttons being pressed from a PC controller.
-                        </p>
-                        <a href="https://github.com/JollyShmo/Controller-Debugger" class="btn btn-primary">
-                            View Project
-                        </a>
+            </div>
+        </section>
+
+        <!-- XIII Wiki and Cheat Codes -->
+        <section id="xiii" class="my-5 text-center">
+            <div class="card mx-auto" style="max-width:480px;">
+                <div class="card-body">
+                    <h3 class="card-title mb-3">XIII (Classic) Cheat Codes</h3>
+                    <p>
+                        I contributed to a comprehensive database of cheat codes for <strong>XIII (Classic)</strong>—compiling, testing, and organizing codes to help players get the most from the game. I also actively help improve the XIII Wiki.
+                    </p>
+                    <div class="mb-3">
+                        <a href="https://xiii-jolly-cheat-codes.notion.site/XIII-Classic-Jolly-Joe-Cheat-Codes-14a98676227c800ab7b0d4752025a208?pvs=4" target="_blank" class="btn btn-primary mb-2">Jolly Joe Cheat Codes</a>
+                        <a href="https://xiii.fandom.com/wiki/XIII_Wiki" target="_blank" class="btn btn-primary">XIII Wiki</a>
                     </div>
                 </div>
-            </section>
-        </div>
-    </div>
-</div>
-<div class="card-container text-center" id="xiii">
-    <div class="card">
-        <h3 class="card-title">XIII (Classic) Cheat Codes</h3>
-        <p class="card-text">
-            Contributed to a comprehensive database of cheat codes for the game <strong>XIII (Classic)</strong>.
-            My work involved compiling, testing, and categorizing various cheat codes to ensure accuracy and ease of
-            use. The database has since become a valuable resource for players looking to enhance their gaming
-            experience with helpful cheats and tips. Also helpping inproving the wiki page for XIII.
-            
-            <a href="https://xiii-jolly-cheat-codes.notion.site/XIII-Classic-Jolly-Joe-Cheat-Codes-14a98676227c800ab7b0d4752025a208?pvs=4" target="_blank">
-                <button class="btn btn-primary">XIII (Classic) Jolly Joe Cheat Codes</button>
+            </div>
+        </section>
+
+        <!-- Support Button -->
+        <div class="text-center my-4">
+            <a href="https://www.buymeacoffee.com/JollyJoe" target="_blank">
+                <button class="btn-coffee-support" aria-label="Support me on Buy Me a Coffee">🧇 Buy Me A Waffle</button>
             </a>
-        </p>
-        <!--Wiki Page-->
-        <p><a href="https://xiii.fandom.com/wiki/XIII_Wiki">
-            <button class="btn btn-primary">XIII Wiki</button>
-        </a></p>
-        <!-- Buy a Coffee Button -->
- 
-    </div>
-</div>
-    <a class="card-container text-center" href="https://www.buymeacoffee.com/JollyJoe" target="_blank">
-        <button class="btn-coffee-support" id="coffeeButtonXIII">🧇 Buy Me A Waffle</button>
-    </a>
-<style>
-    /* Card container layout */
-    .card-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-        padding: 20px;
-    }
+        </div>
+    </main>
 
-    /* Individual card style */
-    .card {
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 280px;
-        padding: 20px;
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Card title styling */
-    .card-title {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 10px;
-        color: #ec982a;
-    }
-
-    /* Card text */
-    .card-text {
-        font-size: 14px;
-        color: #666;
-        line-height: 1.6;
-        margin-bottom: 20px;
-    }
-
-    /* Unique Buy a Coffee Button Styling */
-    .btn-coffee-support {
-        background-color: #ff813f;
-        /* Coffee color */
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        text-transform: uppercase;
-        transition: background-color 0.3s ease;
-    }
-
-    .btn-coffee-support:hover {
-        background-color: #ff6021;
-        /* Darker coffee color on hover */
-    }
-
-    /* Responsive design for mobile */
-    @media (max-width: 768px) {
+    <!-- Custom Styles -->
+    <style>
         .card-container {
-            flex-direction: column;
-            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
         }
-
         .card {
-            width: 90%;
-            margin-bottom: 20px;
+            background-color: #23272f;
+            color: #e6e6e6;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(24,28,36,0.18);
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-    }
-</style>
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .btn-coffee-support {
+            background-color: #ff813f;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+        .btn-coffee-support:hover {
+            background-color: #ff6021;
+        }
+        @media (max-width: 768px) {
+            .card-container, .d-flex {
+                flex-direction: column !important;
+                align-items: center;
+            }
+            .card {
+                width: 95% !important;
+            }
+        }
+    </style>
 
     <!-- Footer -->
     <footer class="bg-dark text-light text-center py-3">
-        <p id="footer">&copy; 2024 Jolly Joe - Website Designer and Developer</p>
+        <p>&copy; 2024 Jolly Joe &mdash; Website Designer & Developer</p>
     </footer>
 
-    <!-- Bootstrap and Other Scripts -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
