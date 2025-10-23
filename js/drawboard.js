@@ -8,11 +8,16 @@ document.addEventListener("DOMContentLoaded", function() {
     const lineStyleSelect = document.getElementById("line-style");
     const clearAllButton = document.getElementById("clear-all");
     const downloadButton = document.getElementById("download");
+    const colorPicker = document.getElementById("color-picker");
+    colorPicker.addEventListener("input", (e) => {
+    currentColor = e.target.value;
+    });
 
     let isDrawing = false;
     let isErasing = false;
     let lastX, lastY;
     let previousStrokeStyle = strokeStyleSelect.value;
+    let currentColor = "#ffffff"; // default white
 
     chalkOverlay.addEventListener("mousedown", startDrawing);
     chalkOverlay.addEventListener("touchstart", startDrawing);
@@ -67,7 +72,8 @@ line.setAttribute("x1", lastX);
 line.setAttribute("y1", lastY);
 line.setAttribute("x2", offsetX);
 line.setAttribute("y2", offsetY);
-line.setAttribute("stroke", isErasing ? "black" : "white");
+
+line.setAttribute("stroke", currentColor); // for SVG
 line.setAttribute("stroke-width", strokeStyleSelect.value);
 line.setAttribute("stroke-linecap", lineStyleSelect.value);
 chalkOverlay.appendChild(line);
