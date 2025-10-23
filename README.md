@@ -15,3 +15,4 @@ I plan to use this for my portfolio and be able to showcase my work.
   - different sizes, and styles
   - ability to enter in the width and height of the page (displayed on screen) on page load
   - ability to save the image
+  - Color works in Edge (others not tested)
