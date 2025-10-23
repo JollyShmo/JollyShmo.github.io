@@ -74,13 +74,15 @@ line.setAttribute("y1", lastY);
 line.setAttribute("x2", offsetX);
 line.setAttribute("y2", offsetY);
 
-line.setAttribute("stroke", currentColor); // for SVG
+// 👇 This is the key change
+line.setAttribute("stroke", isErasing ? "black" : currentColor);
 line.setAttribute("stroke-width", strokeStyleSelect.value);
 line.setAttribute("stroke-linecap", lineStyleSelect.value);
+
 chalkOverlay.appendChild(line);
 lastX = offsetX;
 lastY = offsetY;
-    }
+}
 
     function stopDrawing() {
 isDrawing = false;
