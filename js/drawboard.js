@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
     const chalkOverlay = document.getElementById("chalk-overlay");
-    const toolbar = document.getElementById("toolbar");
     const homeButton = document.getElementById("home");
     const drawButton = document.getElementById("draw");
     const eraseButton = document.getElementById("erase");
@@ -9,17 +8,19 @@ document.addEventListener("DOMContentLoaded", function() {
     const clearAllButton = document.getElementById("clear-all");
     const downloadButton = document.getElementById("download");
     const colorPicker = document.getElementById("color-picker");
-    colorPicker.addEventListener("input", (e) => {
-    currentColor = e.target.value;
 
+    // ✅ Declare shared state here
     let isDrawing = false;
     let isErasing = false;
     let lastX, lastY;
     let previousStrokeStyle = strokeStyleSelect.value;
     let currentColor = "#ffffff"; // default white
 
+    // ✅ Update color when picker changes
+    colorPicker.addEventListener("input", (e) => {
+        currentColor = e.target.value;
     });
-    
+
     chalkOverlay.addEventListener("mousedown", startDrawing);
     chalkOverlay.addEventListener("touchstart", startDrawing);
     chalkOverlay.addEventListener("mousemove", draw);
@@ -29,104 +30,101 @@ document.addEventListener("DOMContentLoaded", function() {
     chalkOverlay.addEventListener("mouseleave", stopDrawing);
 
     homeButton.addEventListener("click", () => {
-    const websiteURL = "https://jollyshmo.github.io";
-    // Navigate to the website
-    window.location.href = websiteURL;
-
+        window.location.href = "https://jollyshmo.github.io";
     });
-    
+
     drawButton.addEventListener("click", () => {
-isErasing = false;
-drawButton.classList.add("active");
-eraseButton.classList.remove("active");
-strokeStyleSelect.value = previousStrokeStyle;
+        isErasing = false;
+        drawButton.classList.add("active");
+        eraseButton.classList.remove("active");
+        strokeStyleSelect.value = previousStrokeStyle;
     });
 
     eraseButton.addEventListener("click", () => {
-isErasing = true;
-eraseButton.classList.add("active");
-drawButton.classList.remove("active");
-previousStrokeStyle = strokeStyleSelect.value;
-strokeStyleSelect.value = "30";
-
+        isErasing = true;
+        eraseButton.classList.add("active");
+        drawButton.classList.remove("active");
+        previousStrokeStyle = strokeStyleSelect.value;
+        strokeStyleSelect.value = "30";
     });
 
     clearAllButton.addEventListener("click", () => {
-chalkOverlay.innerHTML = "";
+        chalkOverlay.innerHTML = "";
     });
 
     downloadButton.addEventListener("click", downloadImage);
 
     function startDrawing(event) {
-event.preventDefault();
-isDrawing = true;
-const { offsetX, offsetY } = getEventCoordinates(event);
-lastX = offsetX;
-lastY = offsetY;
+        event.preventDefault();
+        isDrawing = true;
+        const { offsetX, offsetY } = getEventCoordinates(event);
+        lastX = offsetX;
+        lastY = offsetY;
     }
 
     function draw(event) {
-if (!isDrawing) return;
-const { offsetX, offsetY } = getEventCoordinates(event);
-const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-line.setAttribute("x1", lastX);
-line.setAttribute("y1", lastY);
-line.setAttribute("x2", offsetX);
-line.setAttribute("y2", offsetY);
+        if (!isDrawing) return;
+        const { offsetX, offsetY } = getEventCoordinates(event);
+        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        line.setAttribute("x1", lastX);
+        line.setAttribute("y1", lastY);
+        line.setAttribute("x2", offsetX);
+        line.setAttribute("y2", offsetY);
 
-line.setAttribute("stroke", currentColor); // for SVG
-line.setAttribute("stroke-width", strokeStyleSelect.value);
-line.setAttribute("stroke-linecap", lineStyleSelect.value);
-chalkOverlay.appendChild(line);
-lastX = offsetX;
-lastY = offsetY;
+        // ✅ Use currentColor unless erasing
+        line.setAttribute("stroke", isErasing ? "black" : currentColor);
+        line.setAttribute("stroke-width", strokeStyleSelect.value);
+        line.setAttribute("stroke-linecap", lineStyleSelect.value);
+
+        chalkOverlay.appendChild(line);
+        lastX = offsetX;
+        lastY = offsetY;
     }
 
     function stopDrawing() {
-isDrawing = false;
+        isDrawing = false;
     }
 
     function getEventCoordinates(event) {
-const rect = chalkOverlay.getBoundingClientRect();
-if (event.type.startsWith("touch")) {
-        const touch = event.touches[0];
-        return { offsetX: touch.clientX - rect.left, offsetY: touch.clientY - rect.top };
-} else {
-        return { offsetX: event.clientX - rect.left, offsetY: event.clientY - rect.top };
-}
+        const rect = chalkOverlay.getBoundingClientRect();
+        if (event.type.startsWith("touch")) {
+            const touch = event.touches[0];
+            return { offsetX: touch.clientX - rect.left, offsetY: touch.clientY - rect.top };
+        } else {
+            return { offsetX: event.clientX - rect.left, offsetY: event.clientY - rect.top };
+        }
     }
 
-    // Prevent scrolling when touching the chalkboard area
     chalkOverlay.addEventListener("touchmove", function(event) {
-event.preventDefault();
+        event.preventDefault();
     }, { passive: false });
 
     function downloadImage() {
-const svgData = new XMLSerializer().serializeToString(chalkOverlay);
-const tempSvg = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
-const url = URL.createObjectURL(tempSvg);
+        const svgData = new XMLSerializer().serializeToString(chalkOverlay);
+        const tempSvg = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
+        const url = URL.createObjectURL(tempSvg);
 
-const img = new Image();
-img.onload = function() {
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
+        const img = new Image();
+        img.onload = function() {
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d");
 
-        const saveWidth = document.getElementById("save-width").value || img.width;
-        const saveHeight = document.getElementById("save-height").value || img.height;
+            const saveWidth = document.getElementById("save-width").value || img.width;
+            const saveHeight = document.getElementById("save-height").value || img.height;
 
-        canvas.width = saveWidth;
-        canvas.height = saveHeight;
-        ctx.drawImage(img, 0, 0, saveWidth, saveHeight);
+            canvas.width = saveWidth;
+            canvas.height = saveHeight;
+            ctx.drawImage(img, 0, 0, saveWidth, saveHeight);
 
-        const pngUrl = canvas.toDataURL("image/png");
-        const a = document.createElement("a");
-        a.href = pngUrl;
-        a.download = "chalkboard_drawing.png";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(pngUrl);
-};
-img.src = url;
+            const pngUrl = canvas.toDataURL("image/png");
+            const a = document.createElement("a");
+            a.href = pngUrl;
+            a.download = "chalkboard_drawing.png";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(pngUrl);
+        };
+        img.src = url;
     }
 });
